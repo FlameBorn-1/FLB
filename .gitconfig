@@ -1,0 +1,19 @@
+[user]
+	email = flameborn0@gmail.com
+	name = FlameBorn-1
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[credential]
+	helper = wincred
+
+[core]
+	editor = code --wait
+	autocrlf = true
+
+[init]
+	defaultBranch = main
