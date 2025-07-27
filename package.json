@@ -8,6 +8,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^5.4.0",
     "@openzeppelin/contracts-upgradeable": "^5.4.0",
+    "@openzeppelin/defender-sdk": "^2.7.0",
     "solc": "^0.8.30"
   },
   "version": "1.0.0",
