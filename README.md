@@ -20,7 +20,7 @@
 * **Type**: Soulbound NFT with Role-Based Access Control
 * **Features**: Non-transferable, Auto-Increment Token IDs, Metadata URI, Minter/Admin roles
 
-### 🔥 FlamebornEngine
+### 🔥 FlameBornEngine
 
 * **Contract Address**: `0x4eF6C0cC9e2cBb8cAe2cBb8cAe2cBb8cAe2cBb8`
 * **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x4eF6C0cC9e2cBb8cAe2cBb8cAe2cBb8cAe2cBb8)
@@ -65,7 +65,7 @@
 * 🛡️ Role-based minting and access
 * 📜 IPFS/URI metadata support
 
-### ⚙️ FlamebornEngine
+### ⚙️ FlameBornEngine
 
 * ⚡ Learn-to-Earn reward distribution
 * 🤝 Ties NFT and token logic together
@@ -110,7 +110,7 @@ npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
 # Deploy HealthIDNFT
 npx hardhat run scripts/deploy_healthidnft_celo.ts --network alfajores
 
-# Deploy FlamebornEngine
+# Deploy FlameBornEngine
 npx hardhat run scripts/deploy_engine_celo.ts --network alfajores
 ```
 

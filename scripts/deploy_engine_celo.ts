@@ -1,12 +1,10 @@
 import { ethers, upgrades } from "hardhat";
-import hre from "hardhat";
-import * as path from 'path';
-const fs = require('fs');
-const { join } = require('path');
+import * as fs from 'fs';
+import { join } from 'path';
 
 async function main() {
-  console.log("🚀 Starting FlamebornEngine deployment script");
-  console.log("🔥 Deploying FlamebornEngine to Celo Alfajores...");
+  console.log("🚀 Starting FlameBornEngine deployment script");
+  console.log("🔥 Deploying FlameBornEngine to Celo Alfajores...");
   
   // Get the deployer account
   const [deployer] = await ethers.getSigners();
@@ -21,7 +19,7 @@ async function main() {
   }
 
   // Get the contract factory
-  const FlamebornEngine = await ethers.getContractFactory("FlameBornEngine");
+  const FlameBornEngine = await ethers.getContractFactory("FlameBornEngine");
   
   console.log("📋 Contract deployment parameters:");
   console.log("- Admin:", deployer.address);
@@ -34,7 +32,7 @@ async function main() {
     // Deploy the contract
     console.log("🚀 Deploying contract...");
     const engine = await upgrades.deployProxy(
-      FlamebornEngine,
+      FlameBornEngine,
       [
         deployer.address, // admin
         "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a", // FLB token
@@ -50,7 +48,9 @@ async function main() {
     console.log("Contract deployed. Getting address...");
     const engineAddress = await engine.getAddress();
 
-    console.log("✅ FlamebornEngine deployed to:", engineAddress);
+    console.log("✅ FlameBornEngine deployed to:", engineAddress);
+    
+    // Get deployment transaction
     console.log("Transaction hash:", engine.deploymentTransaction()?.hash);
 
     // Verification preparation
@@ -59,7 +59,7 @@ async function main() {
     // Write deployment info to file
     const deploymentInfo = {
       network: "alfajores",
-      contract: "FlamebornEngine",
+      contract: "FlameBornEngine",
       address: engineAddress,
       deployer: deployer.address,
       timestamp: new Date().toISOString(),

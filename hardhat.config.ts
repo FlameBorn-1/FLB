@@ -2,10 +2,11 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@openzeppelin/hardhat-upgrades";
 import "dotenv/config";
+import "./tasks/test-task";
 
 // Debug: Log environment variables
-console.log("PRIVATE_KEY present:", process.env.PRIVATE_KEY ? "yes" : "no");
-console.log("CELOSCAN_API_KEY present:", process.env.CELOSCAN_API_KEY ? "yes" : "no");
+// console.log("PRIVATE_KEY present:", process.env.PRIVATE_KEY ? "yes" : "no");
+// console.log("CELOSCAN_API_KEY present:", process.env.CELOSCAN_API_KEY ? "yes" : "no");
 
 const config: HardhatUserConfig = {
   solidity: {

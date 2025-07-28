@@ -10,15 +10,15 @@ async function main() {
   try {
     // Get the contract instance
     const FlameBornToken = await ethers.getContractFactory("FlameBornToken");
-    const flameBornToken = FlameBornToken.attach(contractAddress) as any;
+    const FlameBornToken = FlameBornToken.attach(contractAddress) as any;
 
     // Verify basic contract info
     console.log("\n✅ Contract Information:");
-    const name = await flameBornToken.name();
-    const symbol = await flameBornToken.symbol();
-    const decimals = await flameBornToken.decimals();
-    const totalSupply = await flameBornToken.totalSupply();
-    const owner = await flameBornToken.owner();
+    const name = await FlameBornToken.name();
+    const symbol = await FlameBornToken.symbol();
+    const decimals = await FlameBornToken.decimals();
+    const totalSupply = await FlameBornToken.totalSupply();
+    const owner = await FlameBornToken.owner();
 
     console.log("- Name:", name);
     console.log("- Symbol:", symbol);
@@ -27,11 +27,11 @@ async function main() {
     console.log("- Owner:", owner);
 
     // Check owner balance
-    const ownerBalance = await flameBornToken.balanceOf(owner);
+    const ownerBalance = await FlameBornToken.balanceOf(owner);
     console.log("- Owner Balance:", ethers.formatEther(ownerBalance), "FLB");
 
     // Check if contract is paused
-    const isPaused = await flameBornToken.paused();
+    const isPaused = await FlameBornToken.paused();
     console.log("- Is Paused:", isPaused);
 
     // Test basic functionality (read-only)
@@ -39,12 +39,12 @@ async function main() {
     
     // Test allowance (should be 0 for random addresses)
     const [signer] = await ethers.getSigners();
-    const allowance = await flameBornToken.allowance(owner, signer.address);
+    const allowance = await FlameBornToken.allowance(owner, signer.address);
     console.log("- Allowance (owner -> signer):", ethers.formatEther(allowance), "FLB");
 
     // Check if we can get domain separator (EIP-712)
     try {
-      const domainSeparator = await flameBornToken.DOMAIN_SEPARATOR();
+      const domainSeparator = await FlameBornToken.DOMAIN_SEPARATOR();
       console.log("- Domain Separator:", domainSeparator);
     } catch (error) {
       console.log("- Domain Separator: Not available");

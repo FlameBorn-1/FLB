@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 /*
- * FlamebornEngine is a unified contract that combines registry, donation, and
+ * FlameBornEngine is a unified contract that combines registry, donation, and
  * learn‑to‑earn functionality.  Instead of scattering responsibilities across
  * multiple contracts (DonationRouter, LearnToEarn, FLBVesting, etc.), this
  * contract centralizes FLB minting and burning, actor registration, and
@@ -33,11 +33,11 @@ interface IFlameBornToken is IERC20 {
  * implementation itself should enforce non‑transferability and other SBT
  * semantics.
  */
-interface IHealthCredentialNFT {
+interface IHealthIDNFT {
     function mintCredential(address to, uint256 tokenId, string calldata uri) external;
 }
 
-contract FlamebornEngine is AccessControl {
+contract FlameBornEngine is AccessControl {
     using Address for address payable;
 
     // -------------------------------------------------------------------------
@@ -84,7 +84,7 @@ contract FlamebornEngine is AccessControl {
 
     /// @dev The soul‑bound credential NFT contract.  Verified actors
     /// receive a credential when they are registered.
-    IHealthCredentialNFT public immutable credentialNFT;
+    IHealthIDNFT public immutable credentialNFT;
 
     /// @dev Reward amount in FLB paid out when a health actor is verified.
     uint256 public immutable actorReward;
@@ -130,7 +130,7 @@ contract FlamebornEngine is AccessControl {
     constructor(
         address admin,
         IFlameBornToken _token,
-        IHealthCredentialNFT _credentialNFT,
+        IHealthIDNFT _credentialNFT,
         uint256 _actorReward,
         uint256 _donationRewardRate
     ) {

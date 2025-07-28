@@ -27,7 +27,7 @@ async function main() {
   try {
     // Deploy the upgradeable proxy
     console.log("🚀 Deploying upgradeable proxy...");
-    const flameBornToken = await upgrades.deployProxy(
+    const FlameBornToken = await upgrades.deployProxy(
       FlameBornToken,
       [deployer.address], // initialOwner
       {
@@ -36,8 +36,8 @@ async function main() {
       }
     );
 
-    await flameBornToken.waitForDeployment();
-    const proxyAddress = await flameBornToken.getAddress();
+    await FlameBornToken.waitForDeployment();
+    const proxyAddress = await FlameBornToken.getAddress();
 
     console.log("✅ FlameBornToken deployed successfully!");
     console.log("📍 Proxy Address:", proxyAddress);
@@ -48,11 +48,11 @@ async function main() {
     
     // Verify deployment
     console.log("\n🔍 Verifying deployment...");
-    const name = await flameBornToken.name();
-    const symbol = await flameBornToken.symbol();
-    const totalSupply = await flameBornToken.totalSupply();
-    const owner = await flameBornToken.owner();
-    const decimals = await flameBornToken.decimals();
+    const name = await FlameBornToken.name();
+    const symbol = await FlameBornToken.symbol();
+    const totalSupply = await FlameBornToken.totalSupply();
+    const owner = await FlameBornToken.owner();
+    const decimals = await FlameBornToken.decimals();
     
     console.log("✅ Deployment verification:");
     console.log("- Name:", name);
@@ -60,10 +60,10 @@ async function main() {
     console.log("- Decimals:", decimals);
     console.log("- Total Supply:", ethers.formatEther(totalSupply), "FLB");
     console.log("- Owner:", owner);
-    console.log("- Owner Balance:", ethers.formatEther(await flameBornToken.balanceOf(owner)), "FLB");
+    console.log("- Owner Balance:", ethers.formatEther(await FlameBornToken.balanceOf(owner)), "FLB");
     
     // Get deployment transaction
-    const deploymentTx = flameBornToken.deploymentTransaction();
+    const deploymentTx = FlameBornToken.deploymentTransaction();
     
     // Save deployment info
     const deploymentInfo = {
