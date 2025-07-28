@@ -20,13 +20,23 @@
 
 ## ✨ Features
 
-- **🔥 ERC20 Standard**: Full ERC20 compatibility
-- **🔄 Upgradeable**: UUPS (Universal Upgradeable Proxy Standard) pattern
-- **🔥 Burnable**: Token holders can burn their tokens
-- **⏸️ Pausable**: Owner can pause/unpause transfers
-- **✍️ Permit**: EIP-2612 gasless approvals
-- **🔐 Ownable**: Access control for administrative functions
-- **🛡️ Security**: OpenZeppelin battle-tested contracts
+### FlameBornToken (FLB)
+- ✅ **ERC20 Standard**: Full ERC20 compatibility
+- ✅ **Upgradeable**: UUPS (Universal Upgradeable Proxy Standard) pattern
+- ✅ **Burnable**: Token holders can burn their tokens
+- ✅ **Pausable**: Owner can pause/unpause transfers
+- ✅ **Permit**: EIP-2612 gasless approvals
+- ✅ **Ownable**: Access control for administrative functions
+- ✅ **Security**: OpenZeppelin battle-tested contracts
+
+### HealthIDNFT (HID)
+- ✅ **ERC721 Standard**: For unique, non-fungible tokens.
+- ✅ **Soulbound**: Tokens are non-transferable, permanently linking a HealthID to an address.
+- ✅ **Role-Based Access Control**:
+  - `DEFAULT_ADMIN_ROLE`: Manages all other roles.
+  - `MINTER_ROLE`: Can mint new HealthID NFTs.
+  - `MULTISIG_ROLE`: Can update token metadata.
+- ✅ **URI Storage**: Allows for storing metadata URIs (e.g., pointing to IPFS).
 
 ## 🚀 Quick Start
 

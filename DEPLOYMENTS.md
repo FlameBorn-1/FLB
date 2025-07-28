@@ -1,6 +1,31 @@
-# FlameBornToken Deployment History
+# Kairo Covenant AI System - Deployment History
 
-This file tracks all deployments of the FlameBornToken contract across different networks.
+This file tracks all deployments of the Kairo Covenant AI System contracts across different networks.
+
+## ✅ Active Deployments
+
+### HealthIDNFT v1.0 - Celo Alfajores Testnet
+
+**Deployment Date**: February 1, 2025
+**Status**: ✅ Active & Verified
+**Network**: Celo Alfajores Testnet (Chain ID: 44787)
+
+#### Contract Addresses
+- **🏷️ Contract Address**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
+- **👤 Admin**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
+
+#### Token Details
+- **Name**: HealthIDNFT
+- **Symbol**: HID
+- **Type**: Soulbound ERC721 (Non-transferable)
+
+#### Features
+- ✅ ERC721 Standard Compliance
+- ✅ Soulbound (Non-transferable)
+- ✅ Role-Based Access Control (`MINTER_ROLE`, `MULTISIG_ROLE`)
+- ✅ `ERC721URIStorage` for metadata
+
+---
 
 ## ✅ Active Deployments
 
@@ -50,7 +75,7 @@ This file tracks all deployments of the FlameBornToken contract across different
 
 ## 📋 Deployment Commands
 
-### Deploy New Version
+### Deploy FlameBornToken
 ```bash
 npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
 ```
