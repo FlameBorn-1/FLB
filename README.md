@@ -1,193 +1,210 @@
-# FlameBornToken (FLB) - Celo Blockchain Project
+Here's the **updated version** of your `README.md` with the latest deployments including **HealthIDNFT** and structure hints for **FlameBornEngine**:
 
-🔥 **FlameBornToken** is an upgradeable ERC20 token deployed on the Celo blockchain, embodying the spirit of African sovereignty and decentralized technology.
+---
 
-## 🌍 Live Deployment
+# 🔥 FlameBornToken (FLB) – Celo Blockchain Project
 
-**Celo Alfajores Testnet:**
-- **Contract Address**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
-- **Implementation**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
-- **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
-- **Deployer**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
+**FlameBornToken** is an upgradeable ERC20 token deployed on the Celo blockchain, empowering digital sovereignty and decentralized innovation.
 
-## 📊 Token Details
+---
 
-- **Name**: FlameBornToken
-- **Symbol**: FLB
-- **Decimals**: 18
-- **Initial Supply**: 1,000,000 FLB
-- **Type**: Upgradeable ERC20 with advanced features
+## 🌍 Live Deployments
+
+### ✅ FlameBornToken (ERC20)
+
+* **Proxy Address**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
+* **Implementation Address**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
+* **Deployer**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
+
+### 🏥 HealthIDNFT (Soulbound NFT)
+
+* **Contract Address**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
+* **Type**: Soulbound NFT with Role-Based Access Control
+* **Features**: Non-transferable, Auto-Increment Token IDs, Metadata URI, Minter/Admin roles
+
+---
+
+## 📊 Token Info
+
+| Property     | Value                               |
+| ------------ | ----------------------------------- |
+| **Name**     | FlameBornToken                      |
+| **Symbol**   | FLB                                 |
+| **Decimals** | 18                                  |
+| **Supply**   | 1,000,000 FLB                       |
+| **Standard** | Upgradeable ERC20                   |
+| **Access**   | Ownable, Pausable, Burnable, Permit |
+
+---
 
 ## ✨ Features
 
-- **🔥 ERC20 Standard**: Full ERC20 compatibility
-- **🔄 Upgradeable**: UUPS (Universal Upgradeable Proxy Standard) pattern
-- **🔥 Burnable**: Token holders can burn their tokens
-- **⏸️ Pausable**: Owner can pause/unpause transfers
-- **✍️ Permit**: EIP-2612 gasless approvals
-- **🔐 Ownable**: Access control for administrative functions
-- **🛡️ Security**: OpenZeppelin battle-tested contracts
+* ✅ **ERC20** compliant
+* 🔁 **Upgradeable (UUPS)**
+* 🔥 **Burnable**
+* ⏸️ **Pausable**
+* ✍️ **Permit (EIP-2612)**
+* 🔐 **Ownable access**
+* 🧱 Built with **OpenZeppelin**
+
+---
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### ⚙️ Prerequisites
 
-- Node.js (v16+)
-- npm or yarn
-- Git
+* Node.js v16+
+* npm or yarn
+* Git & Hardhat
 
-### Installation
+### ⬇️ Install & Setup
 
 ```bash
 git clone https://github.com/FlameBorn-1/FLB.git
 cd FLB
 npm install
-```
-
-### Environment Setup
-
-```bash
 cp .env.example .env
-# Edit .env with your private key and configuration
+# 🔑 Add your private key to .env
 ```
 
-### Compile Contracts
+### 🧪 Compile & Test
 
 ```bash
 npx hardhat compile
+npx hardhat test
 ```
 
-### Deploy to Celo Alfajores
+### 🚀 Deploy to Celo Alfajores
 
 ```bash
 npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
 ```
 
-## 📋 Deployment Output
+## 📋 Deployment Logs (FLB Token)
 
-```
-🔥 Deploying FlameBornToken to Celo Alfajores...
-Deploying with account: 0x2E75287C542B9b111906D961d58f2617059dDe3c
-Account balance: 5.378320338128 CELO
-📋 Contract deployment parameters:
-- Initial Owner: 0x2E75287C542B9b111906D961d58f2617059dDe3c
-- Token Name: FlameBornToken
-- Token Symbol: FLB
-- Initial Supply: 1,000,000 FLB
-🚀 Deploying upgradeable proxy...
-✅ FlameBornToken deployed successfully!
+```bash
+✅ FlameBornToken deployed
 📍 Proxy Address: 0xd1b6883205eF7021723334D4ec0dc68D0D156b2a
 🔧 Implementation Address: 0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502
-
-🔍 Verifying deployment...
-✅ Deployment verification:
-- Name: FlameBornToken
-- Symbol: FLB
-- Decimals: 18
-- Total Supply: 1000000.0 FLB
-- Owner: 0x2E75287C542B9b111906D961d58f2617059dDe3c
-- Owner Balance: 1000000.0 FLB
 ```
 
-## 🛠️ Available Scripts
-
-### Development
+## 🛠️ Scripts
 
 ```bash
-# Compile contracts
+# Compile
 npx hardhat compile
 
-# Run tests
-npx hardhat test
-
-# Start local node
-npx hardhat node
-
-# Deploy to Alfajores
+# Deploy FlameBornToken
 npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
 
-# Verify deployment
-npx hardhat run scripts/verify_deployment.ts --network alfajores <CONTRACT_ADDRESS>
+# Deploy HealthIDNFT
+npx hardhat run scripts/deploy_healthidnft_celo.ts --network alfajores
+
+# Verify
+npx hardhat verify --network alfajores <IMPLEMENTATION_ADDRESS>
 ```
 
-### Network Configuration
+---
 
-The project is configured for:
-- **Alfajores Testnet** (Chain ID: 44787)
-- **Celo Mainnet** (Chain ID: 42220)
+## 🧬 HealthIDNFT Features
 
-## 📁 Project Structure
+* 🧾 Soulbound Identity NFT
+* 🎭 Role-Based Minting (MINTER\_ROLE)
+* 🔒 Non-transferable (Soulbound)
+* 📜 Token Metadata Support
+* 🪪 Ideal for health/ID verification protocols
+
+---
+
+## 📁 Project Layout
 
 ```
 FLB/
 ├── contracts/
-│   ├── FlameBornToken.sol      # Main token contract
-│   ├── Lock.sol                # Sample contract
-│   └── Greeter.sol             # Sample contract
+│   ├── FlameBornToken.sol
+│   ├── HealthIDNFT.sol
+│   ├── FlameBornEngine.sol   # (Deploy next)
 ├── scripts/
-│   ├── deploy_flameborn_celo.ts # Deployment script
-│   └── verify_deployment.ts     # Verification script
-├── test/                       # Test files
-├── hardhat.config.ts          # Hardhat configuration
-├── DEPLOYMENT_GUIDE.md        # Detailed deployment guide
-└── README.md                  # This file
+│   ├── deploy_flameborn_celo.ts
+│   ├── deploy_healthidnft_celo.ts
+│   ├── verify_deployment.ts
+├── test/                    # Tests
+├── .env.example            # Env config
+├── hardhat.config.ts       # Network setup
+└── DEPLOYMENT_GUIDE.md     # Deployment walkthrough
 ```
-
-## 🔧 Contract Functions
-
-### Owner Functions
-- `pause()` - Pause all token transfers
-- `unpause()` - Resume token transfers
-- `mint(address to, uint256 amount)` - Mint new tokens
-
-### User Functions
-- `transfer(address to, uint256 amount)` - Transfer tokens
-- `approve(address spender, uint256 amount)` - Approve spending
-- `burn(uint256 amount)` - Burn your tokens
-- `permit(...)` - Gasless approvals via signature
-
-## 🌐 Network Information
-
-### Celo Alfajores Testnet
-- **RPC URL**: https://alfajores-forno.celo-testnet.org
-- **Chain ID**: 44787
-- **Explorer**: https://alfajores.celoscan.io
-- **Faucet**: https://faucet.celo.org/alfajores
-
-## 🔐 Security
-
-- Built with OpenZeppelin's battle-tested contracts
-- Upgradeable using UUPS pattern for future improvements
-- Owner-controlled administrative functions
-- Comprehensive access controls
-
-## 📚 Documentation
-
-- [Deployment Guide](./DEPLOYMENT_GUIDE.md) - Complete deployment instructions
-- [Celo Documentation](https://docs.celo.org/)
-- [OpenZeppelin Docs](https://docs.openzeppelin.com/)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔗 Links
-
-- **Repository**: https://github.com/FlameBorn-1/FLB
-- **Contract**: https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a
-- **Celo**: https://celo.org/
-- **OpenZeppelin**: https://openzeppelin.com/
 
 ---
 
-*"When the lion learns to code, the hunter's story ends."* 🦁
+## 🔧 Functions Overview
 
-Built with ❤️ for African sovereignty and decentralized technology.
+### 🔐 Admin Functions
+
+* `pause()`, `unpause()`
+* `mint(address, amount)`
+* `grantRole(bytes32, address)`
+
+### 👤 User Functions
+
+* `transfer(...)`
+* `burn(...)`
+* `permit(...)`
+
+---
+
+## 🌐 Network Info
+
+* **Network**: Alfajores (Testnet)
+* **RPC**: [https://alfajores-forno.celo-testnet.org](https://alfajores-forno.celo-testnet.org)
+* **Chain ID**: `44787`
+* **Explorer**: [https://alfajores.celoscan.io](https://alfajores.celoscan.io)
+* **Faucet**: [https://faucet.celo.org/alfajores](https://faucet.celo.org/alfajores)
+
+---
+
+## 🔐 Security Stack
+
+* 🔒 UUPS upgradeable contracts
+* ✅ Role-based access control
+* 🧱 OpenZeppelin contract standards
+* 🧪 Local test coverage in `/test`
+
+---
+
+## 📚 Documentation & Resources
+
+* 📖 [Deployment Guide](./DEPLOYMENT_GUIDE.md)
+* 🔧 [Celo Docs](https://docs.celo.org/)
+* 🛡️ [OpenZeppelin](https://docs.openzeppelin.com/)
+* 🦾 [TypeChain](https://github.com/dethcrypto/TypeChain)
+
+---
+
+## 🤝 Contribute
+
+```bash
+git checkout -b feature/new-feature
+git commit -m "Add new feature"
+git push origin feature/new-feature
+```
+
+Open a PR to `main` 🛠️
+
+---
+
+## 📄 License
+
+MIT – Overseer by MoStar Industries [MoStarAI] and Kairo Covenant `LICENSE`
+
+---
+
+## 🔗 Links
+
+* 🔗 [Repo](https://github.com/FlameBorn-1/FLB)
+* 📜 [FLB Token](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
+* 🩺 [HealthIDNFT](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
+* 🌐 [Celo](https://celo.org/)
+* 🧱 [OpenZeppelin](https://openzeppelin.com/)
+
