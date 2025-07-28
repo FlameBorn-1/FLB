@@ -13,9 +13,9 @@ pragma solidity ^0.8.24;
  * incentives for completing learn‑to‑earn activities.
  */
 
-import {AccessControl} from "openzeppelin-contracts/contracts/access/AccessControl.sol";
-import {Address} from "openzeppelin-contracts/contracts/utils/Address.sol";
-import {IERC20} from "openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+import {Address} from "@openzeppelin/contracts/utils/Address.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @dev Minimal interface for the FLB token.  The FLB token should expose a
