@@ -1,4 +1,5 @@
 import { ethers, upgrades } from "hardhat";
+import hre from "hardhat";
 import * as path from 'path';
 const fs = require('fs');
 const { join } = require('path');
@@ -20,7 +21,7 @@ async function main() {
   }
 
   // Get the contract factory
-  const FlamebornEngine = await ethers.getContractFactory("FlamebornEngine");
+  const FlamebornEngine = await ethers.getContractFactory("FlameBornEngine");
   
   console.log("📋 Contract deployment parameters:");
   console.log("- Admin:", deployer.address);

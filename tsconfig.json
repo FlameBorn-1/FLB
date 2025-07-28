@@ -6,6 +6,28 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDir": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typechain-types"
+    ],
+    "types": ["hardhat", "mocha"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./scripts/*"],
+      "@test/*": ["./test/*"],
+      "@contracts/*": ["./contracts/*"]
+    }
+  },
+  "include": [
+    "./scripts",
+    "./test",
+    "./typechain-types"
+  ],
+  "files": [
+    "./hardhat.config.ts"
+  ]
 }
