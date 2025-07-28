@@ -3,19 +3,23 @@
 ## Issues Identified
 
 ### 1. Line Length Issue (Primary)
+
 - **Line 12**: Contract declaration exceeds 145 characters
 - **Current**: `contract FlameBornToken is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, ERC20PausableUpgradeable, OwnableUpgradeable, ERC20PermitUpgradeable, UUPSUpgradeable {`
 - **Length**: ~180 characters
 
 ### 2. Malformed Comments
+
 - **Lines 14-18**: Inconsistent comment syntax mixing `/*` and `//`
 - **Line 22**: Incomplete comment `// @`
 
 ### 3. Unused Constants
+
 - **Lines 23-24**: `_DECIMALS` and `_INITIAL_SUPPLY` constants defined but never used
 - The initial supply is not minted in the `initialize` function
 
 ### 4. Missing Initial Supply Logic
+
 - Constants suggest an initial supply should be minted, but it's not implemented
 
 ## Corrected Code
@@ -105,21 +109,25 @@ contract FlameBornToken is
 ## Summary of Fixes
 
 ### 1. Line Length Fix
+
 - **Fixed**: Broke the contract inheritance declaration across multiple lines
 - Each inherited contract is now on its own line with proper indentation
 - Total line length now under 145 characters per line
 
 ### 2. Comment Fixes
+
 - **Fixed**: Standardized all comments to use proper JSDoc-style `/** */` format
 - **Fixed**: Removed incomplete comment on line 22
 - **Added**: Proper documentation for constants and initialize function
 
 ### 3. Constant Usage Fix
+
 - **Fixed**: Now properly using the `_INITIAL_SUPPLY` constant
 - **Added**: Initial supply minting in the `initialize` function
 - **Added**: Documentation explaining the constants
 
 ### 4. Code Quality Improvements
+
 - **Added**: Proper JSDoc documentation for the initialize function
 - **Improved**: Overall code readability and maintainability
 - **Enhanced**: Constructor documentation
