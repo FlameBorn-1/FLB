@@ -1,8 +1,10 @@
 import { ethers, upgrades } from "hardhat";
 import * as path from 'path';
 const fs = require('fs');
+const { join } = require('path');
 
 async function main() {
+  console.log("🚀 Starting FlamebornEngine deployment script");
   console.log("🔥 Deploying FlamebornEngine to Celo Alfajores...");
   
   // Get the deployer account
@@ -30,12 +32,16 @@ async function main() {
   try {
     // Deploy the contract
     console.log("🚀 Deploying contract...");
-    const engine = await FlamebornEngine.deploy(
-      deployer.address, // admin
-      "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a", // FLB token
-      "0x115aA20101bd0F95516Cc67ea104eD0B0c642919", // HealthIDNFT
-      ethers.parseUnits("100", 18), // actorReward (100 FLB)
-      100 // donationRewardRate (100 FLB per ETH)
+    const engine = await upgrades.deployProxy(
+      FlamebornEngine,
+      [
+        deployer.address, // admin
+        "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a", // FLB token
+        "0x115aA20101bd0F95516Cc67ea104eD0B0c642919", // HealthIDNFT
+        ethers.parseUnits("100", 18), // actorReward (100 FLB)
+        100 // donationRewardRate (100 FLB per ETH)
+      ],
+      { initializer: "initialize", kind: "uups" }
     );
     
     console.log("Contract deployment transaction sent. Waiting for deployment...");
@@ -43,50 +49,27 @@ async function main() {
     console.log("Contract deployed. Getting address...");
     const engineAddress = await engine.getAddress();
 
-    console.log("✅ FlamebornEngine deployed successfully!");
-    console.log("📍 Contract Address:", engineAddress);
+    console.log("✅ FlamebornEngine deployed to:", engineAddress);
+    console.log("Transaction hash:", engine.deploymentTransaction()?.hash);
+
+    // Verification preparation
+    console.log("Preparing for verification...");
     
-    // Verify deployment
-    console.log("\n🔍 Verifying deployment..."); // Assuming deployer is the admin
-    const admin = await engine.hasRole(await engine.DEFAULT_ADMIN_ROLE(), deployer.address); 
-    const tokenAddress = await engine.getAddress();
-    const credentialNFTAddress = await engine.getCredentialNFTAddress();
-    const actorReward = await engine.getActorReward();
-    const donationRewardRate = await engine.getDonationRewardRate();
-
-    console.log("✅ Deployment verification:");
-    console.log("- Admin role:", admin);
-    console.log("- Token address:", tokenAddress);
-    console.log("- Credential NFT address:", credentialNFTAddress);
-    console.log("- Actor reward:", ethers.formatUnits(actorReward, 18), "FLB");
-    console.log("- Donation reward rate:", donationRewardRate, "FLB per ETH");
-
-    // Save deployment info
+    // Write deployment info to file
     const deploymentInfo = {
       network: "alfajores",
-      chainId: 44787,
-      contractName: "FlamebornEngine",
+      contract: "FlamebornEngine",
       address: engineAddress,
       deployer: deployer.address,
-      deploymentTime: new Date().toISOString(),
-      transactionHash: engine.deploymentTransaction()?.hash || "N/A",
-      parameters: {
-        admin: deployer.address,
-        token: "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a",
-        credentialNFT: "0x115aA20101bd0F95516Cc67ea104eD0B0c642919",
-        actorReward: "100 FLB",
-        donationRewardRate: "100 FLB per ETH"
-      }
+      timestamp: new Date().toISOString(),
     };
 
-    // Write deployment info to file
-    fs.writeFileSync(
-      `deployment-${new Date().toISOString().replace(/[:.]/g, "-")}.json`,
-      JSON.stringify(deploymentInfo, null, 2)
-    );
+    const filename = `deployment-${Date.now()}.json`;
+    fs.writeFileSync(join(__dirname, "..", "deployments", filename), JSON.stringify(deploymentInfo, null, 2));
+    console.log(`Deployment info written to deployments/${filename}`);
 
-    console.log("\n📄 Deployment Summary:");
-    console.log(JSON.stringify(deploymentInfo, null, 2));
+    console.log("\nTo verify the contract, run:");
+    console.log(`npx hardhat verify --network alfajores ${engineAddress}`);
     
     console.log("\n🌍 View on Celoscan:");
     console.log(`https://alfajores.celoscan.io/address/${engineAddress}`);
@@ -103,7 +86,7 @@ async function main() {
     
   } catch (error) {
     console.error("❌ Deployment failed:", error);
-    throw error;
+    process.exitCode = 1;
   }
 }
 
