@@ -214,7 +214,7 @@ contract FlameBornEngine is AccessControl {
         // Mint a soul‑bound credential.  Use the actor address as the tokenId
         // to ensure uniqueness.  The metadata URI can be computed off‑chain
         // (e.g., IPFS) and passed here; for simplicity we derive from name.
-        string memory uri = tokenURIForActor(role, name);
+        string memory uri = tokenURIForActor(name);
         credentialNFT.mintCredential(actorAddress, uint256(uint160(actorAddress)), uri);
 
         // Mint FLB reward
@@ -228,7 +228,7 @@ contract FlameBornEngine is AccessControl {
      * In production, this should point to real metadata hosted on IPFS or
      * another decentralised storage.
      */
-    function tokenURIForActor(ActorRole role, string memory name) public pure returns (string memory) {
+    function tokenURIForActor(string memory name) public pure returns (string memory) {
         // Example: prepend role as string.  You may replace this with IPFS CID.
         return string(abi.encodePacked("https://example.com/metadata/", name));
     }

@@ -27,7 +27,7 @@ async function main() {
   try {
     // Deploy the upgradeable proxy
     console.log("🚀 Deploying upgradeable proxy...");
-    const FlameBornToken = await upgrades.deployProxy(
+    const deployedFlameBornToken = await upgrades.deployProxy(
       FlameBornToken,
       [deployer.address], // initialOwner
       {
@@ -36,8 +36,8 @@ async function main() {
       }
     );
 
-    await FlameBornToken.waitForDeployment();
-    const proxyAddress = await FlameBornToken.getAddress();
+    await deployedFlameBornToken.waitForDeployment();
+    const proxyAddress = await deployedFlameBornToken.getAddress();
 
     console.log("✅ FlameBornToken deployed successfully!");
     console.log("📍 Proxy Address:", proxyAddress);
@@ -45,14 +45,14 @@ async function main() {
     // Get implementation address
     const implementationAddress = await upgrades.erc1967.getImplementationAddress(proxyAddress);
     console.log("🔧 Implementation Address:", implementationAddress);
-    
+
     // Verify deployment
     console.log("\n🔍 Verifying deployment...");
-    const name = await FlameBornToken.name();
-    const symbol = await FlameBornToken.symbol();
-    const totalSupply = await FlameBornToken.totalSupply();
-    const owner = await FlameBornToken.owner();
-    const decimals = await FlameBornToken.decimals();
+    const name = await deployedFlameBornToken.name();
+    const symbol = await deployedFlameBornToken.symbol();
+    const totalSupply = await deployedFlameBornToken.totalSupply();
+    const owner = await deployedFlameBornToken.owner();
+    const decimals = await deployedFlameBornToken.decimals();
     
     console.log("✅ Deployment verification:");
     console.log("- Name:", name);
@@ -60,11 +60,11 @@ async function main() {
     console.log("- Decimals:", decimals);
     console.log("- Total Supply:", ethers.formatEther(totalSupply), "FLB");
     console.log("- Owner:", owner);
-    console.log("- Owner Balance:", ethers.formatEther(await FlameBornToken.balanceOf(owner)), "FLB");
-    
+    console.log("- Owner Balance:", ethers.formatEther(await deployedFlameBornToken.balanceOf(owner)), "FLB");
+
     // Get deployment transaction
-    const deploymentTx = FlameBornToken.deploymentTransaction();
-    
+    const deploymentTx = deployedFlameBornToken.deploymentTransaction();
+
     // Save deployment info
     const deploymentInfo = {
       network: "alfajores",
@@ -85,7 +85,7 @@ async function main() {
         initialOwner: owner
       }
     };
-    
+
     console.log("\n📄 Deployment Summary:");
     console.log(JSON.stringify(deploymentInfo, (key, value) =>
       typeof value === 'bigint' ? value.toString() : value, 2));
@@ -98,7 +98,7 @@ async function main() {
     console.log("1. Verify the contract on Celoscan");
     console.log("2. Test token functionality (transfer, burn, pause)");
     console.log("3. Set up governance if needed");
-    
+
     return {
       proxy: proxyAddress,
       implementation: implementationAddress,
