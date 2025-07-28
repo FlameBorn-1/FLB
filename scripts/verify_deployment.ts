@@ -1,22 +1,16 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  // Replace with your deployed contract address
-  const contractAddress = process.argv[2];
+  // Use the deployed proxy address
+  const contractAddress = "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a";
   
-  if (!contractAddress) {
-    console.error("❌ Please provide the contract address as an argument");
-    console.log("Usage: npx hardhat run scripts/verify_deployment.ts --network alfajores <CONTRACT_ADDRESS>");
-    process.exit(1);
-  }
-
   console.log("🔍 Verifying FlameBornToken deployment...");
   console.log("📍 Contract Address:", contractAddress);
 
   try {
     // Get the contract instance
     const FlameBornToken = await ethers.getContractFactory("FlameBornToken");
-    const flameBornToken = FlameBornToken.attach(contractAddress);
+    const flameBornToken = FlameBornToken.attach(contractAddress) as any;
 
     // Verify basic contract info
     console.log("\n✅ Contract Information:");
