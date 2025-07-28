@@ -219,4 +219,4 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-*"When the lion learns to code, the hunter's story ends."* 🦁
+*"When the LION learns to CODE, the HUNTER's story ends."* 🦁
