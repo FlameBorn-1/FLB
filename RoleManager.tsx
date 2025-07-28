@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import HealthIDNFT_ABI from "../HealthIDNFT.json"; // Adjust path to your ABI
+import HealthIDNFT_ABI from "../HealthIDNFT.json"; // Adjust path to your ABI with type assertion
 
 const contractInterface = new ethers.Interface(HealthIDNFT_ABI.abi);
 
