@@ -1,4 +1,4 @@
-import { ethers } from "hardhat";
+import { ethers } from "ethers";
 
 async function main() {
   const [contractAddress, recipientAddress, metadataURI] = process.argv.slice(2);
@@ -18,11 +18,11 @@ async function main() {
   console.log("   - Recipient Address:", recipientAddress);
   console.log("   - Metadata URI:", metadataURI);
 
-  const [minter] = await ethers.getSigners();
+  const [minter] = await (ethers as any).getSigners();
   console.log("   - Using Minter Account:", minter.address);
 
   try {
-    const HealthIDNFT = await ethers.getContractFactory("HealthIDNFT");
+    const HealthIDNFT = await (ethers as any).getContractFactory("HealthIDNFT");
     const healthIDNFT = HealthIDNFT.attach(contractAddress) as any;
 
     // Check if the signer has the MINTER_ROLE
