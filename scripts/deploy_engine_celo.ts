@@ -19,7 +19,7 @@ async function main() {
   }
 
   // Get the contract factory
-  const FlameBornEngine = await ethers.getContractFactory("FlameBornEngine");
+  const FlamebornEngine = await ethers.getContractFactory("FlamebornEngine");
   
   console.log("📋 Contract deployment parameters:");
   console.log("- Admin:", deployer.address);
@@ -32,7 +32,7 @@ async function main() {
     // Deploy the contract
     console.log("🚀 Deploying contract...");
     const engine = await upgrades.deployProxy(
-      FlameBornEngine,
+      FlamebornEngine,
       [
         deployer.address, // admin
         "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a", // FLB token
@@ -50,6 +50,10 @@ async function main() {
 
     console.log("✅ FlameBornEngine deployed to:", engineAddress);
     
+    // Get implementation address
+    const implementationAddress = await upgrades.erc1967.getImplementationAddress(engineAddress);
+    console.log("🧠 Implementation address:", implementationAddress);
+    
     // Get deployment transaction
     console.log("Transaction hash:", engine.deploymentTransaction()?.hash);
 
@@ -61,6 +65,7 @@ async function main() {
       network: "alfajores",
       contract: "FlameBornEngine",
       address: engineAddress,
+      implementation: implementationAddress,
       deployer: deployer.address,
       timestamp: new Date().toISOString(),
     };

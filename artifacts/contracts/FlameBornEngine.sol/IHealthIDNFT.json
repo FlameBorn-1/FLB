@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "IHealthIDNFT",
-  "sourceName": "contracts/FlameBornEngine.sol",
+  "sourceName": "contracts/FlamebornEngine.sol",
   "abi": [
     {
       "inputs": [
