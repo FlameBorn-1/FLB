@@ -1,0 +1,8 @@
+{
+  "network": "alfajores",
+  "contract": "FlameBornEngine",
+  "address": "0xfF4ea30aC26665B687e023375c6f8AD929cC8788",
+  "implementation": "0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D",
+  "deployer": "0x2E75287C542B9b111906D961d58f2617059dDe3c",
+  "timestamp": "2025-07-31T01:35:59.542Z"
+}

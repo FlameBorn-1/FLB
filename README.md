@@ -22,18 +22,38 @@
 
 ### 🔥 FlameBornEngine
 
-* **Contract Address**: `0x4eF6C0cC9e2cBb8cAe2cBb8cAe2cBb8cAe2cBb8`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x4eF6C0cC9e2cBb8cAe2cBb8cAe2cBb8cAe2cBb8)
+* **Contract Address**: `0xfF4ea30aC26665B687e023375c6f8AD929cC8788`
+* **Implementation Address**: `0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D`
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xfF4ea30aC26665B687e023375c6f8AD929cC8788)
 * **Linked Contracts**:
-
   * **FLB Token**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
   * **HealthIDNFT**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
 * **Features**:
-
   * Role-driven interaction logic
   * Reward distribution (FLB)
   * Learn-to-Earn & Donation mechanics
   * Modular controller engine
+
+---
+
+## 🚀 Deployment & Verification
+
+### Deploy (Celo Alfajores)
+
+```sh
+npx hardhat run scripts/deploy_engine_celo.ts --network alfajores
+```
+
+### Verify on Celoscan
+
+```sh
+npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC8788
+```
+
+### Test Engine Functionality
+
+- Use the frontend or scripts to interact with the contract.
+- Ensure all functions (donation, rewards, actor verification, etc.) work as expected.
 
 ---
 

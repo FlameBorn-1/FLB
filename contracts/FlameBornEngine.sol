@@ -4,8 +4,8 @@ pragma solidity ^0.8.28;
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface IFlameBornToken is IERC20 {
@@ -18,7 +18,6 @@ interface IHealthIDNFT {
 }
 
 contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgradeable, ReentrancyGuardUpgradeable {
-    using AddressUpgradeable for address payable;
 
     // Roles
     bytes32 public constant REGISTRAR_ROLE = keccak256("REGISTRAR_ROLE");
@@ -102,7 +101,8 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
         uint256 balance = address(this).balance;
         require(balance > 0, "No funds available");
         require(recipient != address(0), "Recipient required");
-        recipient.sendValue(balance);
+        (bool success, ) = recipient.call{value: balance}("");
+        require(success, "Transfer failed");
     }
 
     function verifyActor(
