@@ -37,7 +37,7 @@ interface IHealthIDNFT {
     function mintCredential(address to, uint256 tokenId, string calldata uri) external;
 }
 
-contract FlamebornEngine is AccessControl {
+contract FlameBornEngine is AccessControl {
     using Address for address payable;
 
     // -------------------------------------------------------------------------

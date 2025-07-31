@@ -1956,8 +1956,8 @@
       ]
     },
     "C:\\Users\\AI\\Documents\\GitHub\\FLB\\contracts\\FlamebornEngine.sol": {
-      "lastModificationDate": 1753919319149,
-      "contentHash": "442c86222e3b6b371bd331e5125459e9",
+      "lastModificationDate": 1753919335817,
+      "contentHash": "800714dc47e0c83015ebf73990dde657",
       "sourceName": "contracts/FlamebornEngine.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -1993,7 +1993,7 @@
         "^0.8.24"
       ],
       "artifacts": [
-        "FlameBornEngine",
+        "FlamebornEngine",
         "IFlameBornToken",
         "IHealthIDNFT"
       ]

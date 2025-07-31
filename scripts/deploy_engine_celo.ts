@@ -19,7 +19,7 @@ async function main() {
   }
 
   // Get the contract factory
-  const FlamebornEngine = await ethers.getContractFactory("FlamebornEngine");
+  const FlameBornEngine = await ethers.getContractFactory("FlameBornEngine");
   
   console.log("📋 Contract deployment parameters:");
   console.log("- Admin:", deployer.address);
@@ -32,7 +32,7 @@ async function main() {
     // Deploy the contract
     console.log("🚀 Deploying contract...");
     const engine = await upgrades.deployProxy(
-      FlamebornEngine,
+      FlameBornEngine,
       [
         deployer.address, // admin
         "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a", // FLB token
