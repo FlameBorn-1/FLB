@@ -36,6 +36,12 @@
 
 ---
 
+## ✅ Verification Status
+- FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
+- Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
+
+---
+
 ## 🚀 Deployment & Verification
 
 ### Deploy (Celo Alfajores)

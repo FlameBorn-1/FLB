@@ -1,7 +1,8 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@openzeppelin/hardhat-upgrades";
-import "dotenv/config";
 import "./tasks/test-task";
 
 // Debug: Log environment variables
@@ -44,19 +45,17 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: {
-      alfajores: process.env.CELOSCAN_API_KEY || "",
-    },
+    apiKey: process.env.CELOTESTNET_API_KEY || "",
     customChains: [
       {
         network: "alfajores",
         chainId: 44787,
         urls: {
           apiURL: "https://api-alfajores.celoscan.io/api",
-          browserURL: "https://alfajores.celoscan.io",
-        },
-      },
-    ],
+          browserURL: "https://alfajores.celoscan.io"
+        }
+      }
+    ]
   },
 };
 
