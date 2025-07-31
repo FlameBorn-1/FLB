@@ -46,6 +46,7 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
     uint256 public actorReward;
     uint256 public donationRewardRate;
     uint256 public totalDonations;
+    uint256 public constant MIN_DONATION = 0.01 ether;
 
     mapping(address => uint256) public donorBalances;
     mapping(address => Actor) public actors;
@@ -54,6 +55,8 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
     event DonationReceived(address indexed donor, uint256 amountETH, uint256 rewardFLB);
     event ActorVerified(address indexed actor, ActorRole role, string name);
     event QuestRewarded(address indexed user, string questId, uint256 reward);
+
+    error ActorAlreadyVerified(address actor);
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
@@ -86,7 +89,7 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
     }
 
     function donate() external payable {
-        require(msg.value > 0, "Donation must be greater than 0");
+        require(msg.value >= MIN_DONATION, "Donation too small");
 
         totalDonations += msg.value;
         donorBalances[msg.sender] += msg.value;
@@ -113,6 +116,7 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
         string calldata phone
     ) external onlyRole(REGISTRAR_ROLE) {
         require(actorAddress != address(0), "Invalid actor");
+        if (actors[actorAddress].verified) revert ActorAlreadyVerified(actorAddress);
 
         actors[actorAddress] = Actor({
             verified: true,

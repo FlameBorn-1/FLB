@@ -2,6 +2,71 @@
   "version": "3.4",
   "log": [
     {
+      "contracts/test/ReentrancyAttacker.sol:IFlameBornEngine": {
+        "src": "contracts\\test\\ReentrancyAttacker.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "withdrawDonations(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      },
+      "contracts/test/ReentrancyAttacker.sol:ReentrancyAttacker": {
+        "src": "contracts\\test\\ReentrancyAttacker.sol:8",
+        "version": {
+          "withMetadata": "92ba7ef2864d4874c56e708db8b1e30561ae6464e2156e0142cdc4c70073baf0",
+          "withoutMetadata": "e550fbe99254a38cf071a3f721030dc70dac26721e23cf89cc311a2036677d2b",
+          "linkedWithoutMetadata": "e550fbe99254a38cf071a3f721030dc70dac26721e23cf89cc311a2036677d2b"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "(address)",
+          "attack()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ReentrancyAttacker",
+            "src": "contracts\\test\\ReentrancyAttacker.sol:11"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "engine",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_contract(IFlameBornEngine)7",
+              "contract": "ReentrancyAttacker",
+              "src": "contracts\\test\\ReentrancyAttacker.sol:9"
+            }
+          ],
+          "types": {
+            "t_contract(IFlameBornEngine)7": {
+              "label": "contract IFlameBornEngine",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      }
+    },
+    {
       "@openzeppelin/contracts/interfaces/draft-IERC6093.sol:IERC1155Errors": {
         "src": "@openzeppelin\\contracts\\interfaces\\draft-IERC6093.sol:113",
         "inherit": [],

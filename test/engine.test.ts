@@ -6,7 +6,9 @@ import {
   FLBTokenMock,
   FLBTokenMock__factory,
   HealthIDNFTMock,
-  HealthIDNFTMock__factory 
+  HealthIDNFTMock__factory,
+  ReentrancyAttacker,
+  ReentrancyAttacker__factory
 } from "../typechain-types";
 
 describe("FlameBornEngine", function () {
@@ -117,5 +119,78 @@ describe("FlameBornEngine", function () {
     await expect(
       engine.connect(donor).withdrawDonations(donor.address)
     ).to.be.revertedWithCustomError(engine, "AccessControlUnauthorizedAccount");
+  });
+
+  // Edge Cases
+  it("should handle minimum donation amounts", async () => {
+    const minDonation = await engine.MIN_DONATION();
+    
+    // Test below minimum
+    await expect(
+      engine.connect(donor).donate({ value: minDonation - 1n })
+    ).to.be.revertedWith("Donation too small");
+    
+    // Test at minimum
+    await expect(
+      engine.connect(donor).donate({ value: minDonation })
+    ).to.not.be.reverted;
+  });
+
+  it("should prevent duplicate actor verification", async () => {
+    await engine.connect(registrar).verifyActor(
+      actor.address, 
+      1, "Dr. Test", "LIC123", "+123"
+    );
+    await expect(
+      engine.connect(registrar).verifyActor(
+        actor.address, 
+        1, "Dr. Test", "LIC123", "+123"
+      )
+    ).to.be.revertedWithCustomError(engine, "ActorAlreadyVerified");
+  });
+
+  // Security Tests
+  it("should prevent reentrancy attacks on withdrawals", async () => {
+    const AttackerFactory = await ethers.getContractFactory("ReentrancyAttacker");
+    const attacker = await AttackerFactory.deploy(await engine.getAddress());
+    
+    // Fund the engine
+    await engine.connect(donor).donate({ value: ethers.parseEther("1") });
+    
+    // Test attack
+    await expect(
+      attacker.attack({ value: ethers.parseEther("0.1") })
+    ).to.be.revertedWith("ReentrancyGuard: reentrant call");
+  });
+
+  // Integration Tests
+  it("should handle full workflow: verify -> donate -> reward -> withdraw", async () => {
+    // 1. Verify actor
+    await engine.connect(registrar).verifyActor(
+      actor.address,
+      1, "Dr. Complete", "LIC456", "+456"
+    );
+    
+    // 2. Process donation
+    await engine.connect(donor).donate({ value: ethers.parseEther("2") });
+    
+    // 3. Award quest
+    await engine.connect(questAdmin).awardQuest(
+      actor.address, 
+      ethers.parseEther("50"), 
+      "QST-001"
+    );
+    
+    // 4. Withdraw donations
+    const balanceBefore = await ethers.provider.getBalance(admin.address);
+    const tx = await engine.connect(admin).withdrawDonations(admin.address);
+    const receipt = await tx.wait();
+    if (!receipt) throw new Error("Transaction failed");
+    const gasUsed = receipt.gasUsed * receipt.gasPrice;
+    
+    // Verify final state
+    expect(await flbToken.balanceOf(actor.address)).to.equal(ethers.parseEther("150"));
+    expect(await flbToken.balanceOf(donor.address)).to.equal(ethers.parseEther("200"));
+    expect(await ethers.provider.getBalance(await engine.getAddress())).to.equal(0);
   });
 });

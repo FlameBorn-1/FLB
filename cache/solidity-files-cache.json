@@ -2202,6 +2202,44 @@
       "artifacts": [
         "FLBTokenMock"
       ]
+    },
+    "C:\\Users\\AI\\Documents\\GitHub\\FLB\\contracts\\test\\ReentrancyAttacker.sol": {
+      "lastModificationDate": 1753929912412,
+      "contentHash": "ab44d50dd4bd7e131e141296113c2fad",
+      "sourceName": "contracts/test/ReentrancyAttacker.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IFlameBornEngine",
+        "ReentrancyAttacker"
+      ]
     }
   }
 }
