@@ -36,9 +36,21 @@
 
 ---
 
+## Alfajores Testnet Deployment
+
+**Contract Addresses**
+
+* FlameBornEngine (Proxy): [0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6](https://alfajores.celoscan.io/address/0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6)
+* Implementation: [0x632446C0C9FBa5bF97733042F2B6F1aB2009A817](https://alfajores.celoscan.io/address/0x632446C0C9FBa5bF97733042F2B6F1aB2009A817)
+
+**Deployment TX**
+[0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9](https://alfajores.celoscan.io/tx/0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9)
+
+---
+
 ## ✅ Verification Status
 
-- FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
+* FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
 
 * Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
 
@@ -49,33 +61,35 @@
 The FlameBornEngine has been thoroughly tested with 5 key test cases:
 
 1. **Actor Verification**
-   - Verifies actors and mints NFT + FLB rewards
-   - Validates role-based access control
+   * Verifies actors and mints NFT + FLB rewards
+   * Validates role-based access control
 
 2. **Donation Processing**
-   - Tests CELO donations and FLB rewards
-   - Verifies donor balances tracking
+   * Tests CELO donations and FLB rewards
+   * Verifies donor balances tracking
 
 3. **Quest Rewards**
-   - Validates FLB distribution for completed quests
-   - Tests reward tracking system
+   * Validates FLB distribution for completed quests
+   * Tests reward tracking system
 
 4. **Withdrawals**
-   - Verifies admin withdrawal functionality
-   - Ensures proper fund accounting
+   * Verifies admin withdrawal functionality
+   * Ensures proper fund accounting
 
 5. **Access Control**
-   - Validates role-based permissions
-   - Tests custom error messages for unauthorized access
+   * Validates role-based permissions
+   * Tests custom error messages for unauthorized access
 
 ## 🧪 Running Tests
 
 Execute the full test suite with:
+
 ```sh
 npx hardhat test test/engine.test.ts
 ```
 
 For gas usage reports:
+
 ```sh
 npx hardhat test test/engine.test.ts --gas-report
 ```
