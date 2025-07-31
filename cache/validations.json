@@ -226,1898 +226,6 @@
         },
         "solcVersion": "0.8.28"
       },
-      "contracts/FlamebornEngine.sol:FlamebornEngine": {
-        "src": "contracts\\FlamebornEngine.sol:40",
-        "version": {
-          "withMetadata": "4ebc8d10ade81dd5d862408ed1bb4d1b5572e442e3edb976e616e434cf60f909",
-          "withoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1",
-          "linkedWithoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlamebornEngine",
-            "src": "contracts\\FlamebornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlamebornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlamebornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlamebornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlamebornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlamebornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlamebornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlamebornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlamebornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlamebornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:FlamebornEngine": {
-        "src": "contracts\\FlamebornEngine.sol:40",
-        "version": {
-          "withMetadata": "4ebc8d10ade81dd5d862408ed1bb4d1b5572e442e3edb976e616e434cf60f909",
-          "withoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1",
-          "linkedWithoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlamebornEngine",
-            "src": "contracts\\FlamebornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlamebornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlamebornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlamebornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlamebornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlamebornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlamebornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlamebornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlamebornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlamebornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:FlamebornEngine": {
-        "src": "contracts\\FlamebornEngine.sol:40",
-        "version": {
-          "withMetadata": "4ebc8d10ade81dd5d862408ed1bb4d1b5572e442e3edb976e616e434cf60f909",
-          "withoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1",
-          "linkedWithoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlamebornEngine",
-            "src": "contracts\\FlamebornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlamebornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlamebornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlamebornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlamebornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlamebornEngine",
-              "src": "contracts\\FlamebornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlamebornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlamebornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlamebornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlamebornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlamebornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:FlameBornEngine": {
-        "src": "contracts\\FlamebornEngine.sol:40",
-        "version": {
-          "withMetadata": "f2d38f4211f9d96b44bd5243fe763feeb698ce983bd36814c562b45e485f5352",
-          "withoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1",
-          "linkedWithoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlameBornEngine",
-            "src": "contracts\\FlamebornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlamebornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlamebornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlamebornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlamebornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlameBornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlameBornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlameBornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlamebornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlamebornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
       "contracts/FlameBornEngine.sol:FlameBornEngine": {
         "src": "contracts\\FlameBornEngine.sol:40",
         "version": {
@@ -2367,13 +475,14 @@
       }
     },
     {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
+      "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:AccessControlUpgradeable": {
+        "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:51",
         "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
+          "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:ERC165Upgradeable",
           "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
           "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
+          "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:ContextUpgradeable",
+          "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:Initializable"
         ],
         "libraries": [],
         "methods": [
@@ -2387,16 +496,7 @@
         "linkReferences": [],
         "errors": [],
         "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
+          "storage": [],
           "types": {
             "t_address": {
               "label": "address",
@@ -2414,12 +514,42 @@
               "label": "mapping(address => bool)",
               "numberOfBytes": "32"
             },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
+            "t_mapping(t_bytes32,t_struct(RoleData)26_storage)": {
+              "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
               "numberOfBytes": "32"
             },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
+            "t_struct(AccessControlStorage)36_storage": {
+              "label": "struct AccessControlUpgradeable.AccessControlStorage",
+              "members": [
+                {
+                  "label": "_roles",
+                  "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(InitializableStorage)147_storage": {
+              "label": "struct Initializable.InitializableStorage",
+              "members": [
+                {
+                  "label": "_initialized",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "_initializing",
+                  "type": "t_bool",
+                  "offset": 8,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(RoleData)26_storage": {
+              "label": "struct AccessControlUpgradeable.RoleData",
               "members": [
                 {
                   "label": "hasRole",
@@ -2435,11 +565,237 @@
                 }
               ],
               "numberOfBytes": "64"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
             }
           },
           "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
+          "flat": false,
+          "namespaces": {
+            "erc7201:openzeppelin.storage.AccessControl": [
+              {
+                "contract": "AccessControlUpgradeable",
+                "label": "_roles",
+                "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+                "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:62",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "erc7201:openzeppelin.storage.Initializable": [
+              {
+                "contract": "Initializable",
+                "label": "_initialized",
+                "type": "t_uint64",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "contract": "Initializable",
+                "label": "_initializing",
+                "type": "t_bool",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+                "offset": 8,
+                "slot": "0"
+              }
+            ]
+          }
+        },
+        "solcVersion": "0.8.28"
+      },
+      "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:Initializable": {
+        "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:56",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_struct(InitializableStorage)147_storage": {
+              "label": "struct Initializable.InitializableStorage",
+              "members": [
+                {
+                  "label": "_initialized",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "_initializing",
+                  "type": "t_bool",
+                  "offset": 8,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {
+            "erc7201:openzeppelin.storage.Initializable": [
+              {
+                "contract": "Initializable",
+                "label": "_initialized",
+                "type": "t_uint64",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "contract": "Initializable",
+                "label": "_initializing",
+                "type": "t_bool",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+                "offset": 8,
+                "slot": "0"
+              }
+            ]
+          }
+        },
+        "solcVersion": "0.8.28"
+      },
+      "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:ContextUpgradeable": {
+        "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:17",
+        "inherit": [
+          "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_struct(InitializableStorage)147_storage": {
+              "label": "struct Initializable.InitializableStorage",
+              "members": [
+                {
+                  "label": "_initialized",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "_initializing",
+                  "type": "t_bool",
+                  "offset": 8,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {
+            "erc7201:openzeppelin.storage.Initializable": [
+              {
+                "contract": "Initializable",
+                "label": "_initialized",
+                "type": "t_uint64",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "contract": "Initializable",
+                "label": "_initializing",
+                "type": "t_bool",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+                "offset": 8,
+                "slot": "0"
+              }
+            ]
+          }
+        },
+        "solcVersion": "0.8.28"
+      },
+      "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:ERC165Upgradeable": {
+        "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:21",
+        "inherit": [
+          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
+          "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "supportsInterface(bytes4)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_struct(InitializableStorage)147_storage": {
+              "label": "struct Initializable.InitializableStorage",
+              "members": [
+                {
+                  "label": "_initialized",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "_initializing",
+                  "type": "t_bool",
+                  "offset": 8,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {
+            "erc7201:openzeppelin.storage.Initializable": [
+              {
+                "contract": "Initializable",
+                "label": "_initialized",
+                "type": "t_uint64",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "contract": "Initializable",
+                "label": "_initializing",
+                "type": "t_bool",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+                "offset": 8,
+                "slot": "0"
+              }
+            ]
+          }
         },
         "solcVersion": "0.8.28"
       },
@@ -2516,22 +872,6 @@
         },
         "solcVersion": "0.8.28"
       },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
       "@openzeppelin/contracts/utils/Errors.sol:Errors": {
         "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
         "version": {
@@ -2542,26 +882,6 @@
         "inherit": [],
         "libraries": [],
         "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
         "linkReferences": [],
         "errors": [],
         "layout": {
@@ -2592,101 +912,100 @@
         "solcVersion": "0.8.28"
       },
       "contracts/FlameBornEngine.sol:FlameBornEngine": {
-        "src": "contracts\\FlameBornEngine.sol:40",
+        "src": "contracts\\FlameBornEngine.sol:41",
         "version": {
-          "withMetadata": "4e2551236f4e19c0d107ad4362e46e8a613b18ae6c0c097217eb26af91563cf6",
-          "withoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2",
-          "linkedWithoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2"
+          "withMetadata": "0b4584b5b40f9b1d5c5caba34f127749dc235bd6c17da5f896c6db3f9be96361",
+          "withoutMetadata": "46e758c199e7a78edc13cff2106d115081fb10297015028761bab4d104c4cf5b",
+          "linkedWithoutMetadata": "46e758c199e7a78edc13cff2106d115081fb10297015028761bab4d104c4cf5b"
         },
         "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
+          "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:AccessControlUpgradeable",
+          "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:ERC165Upgradeable",
           "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
           "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
+          "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:ContextUpgradeable",
+          "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:Initializable"
         ],
         "libraries": [
           "@openzeppelin/contracts/utils/Address.sol:Address"
         ],
         "methods": [
-          "(address,address,address,uint256,uint256)",
+          "initialize(address,address,address,uint256,uint256)",
           "donate()",
           "withdrawDonations(address payable)",
           "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(uint8,string)",
+          "tokenURIForActor(string)",
           "awardQuest(address,uint256,string)",
           "isVerifiedActor(address)",
           "getActor(address)"
         ],
         "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlameBornEngine",
-            "src": "contracts\\FlameBornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlameBornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlameBornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlameBornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlameBornEngine.sol:94"
-          }
-        ],
+        "errors": [],
         "layout": {
           "storage": [
             {
-              "label": "_roles",
+              "label": "token",
               "offset": 0,
               "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
+              "type": "t_contract(IFlameBornToken)1197",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:84"
             },
             {
-              "label": "donorBalances",
+              "label": "credentialNFT",
               "offset": 0,
               "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
+              "type": "t_contract(IHealthIDNFT)1208",
               "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:97"
+              "src": "contracts\\FlameBornEngine.sol:88"
             },
             {
-              "label": "totalDonations",
+              "label": "actorReward",
               "offset": 0,
               "slot": "2",
               "type": "t_uint256",
               "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:100"
+              "src": "contracts\\FlameBornEngine.sol:91"
             },
             {
-              "label": "actors",
+              "label": "donationRewardRate",
               "offset": 0,
               "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
+              "type": "t_uint256",
               "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:104"
+              "src": "contracts\\FlameBornEngine.sol:95"
             },
             {
-              "label": "questRewards",
+              "label": "donorBalances",
               "offset": 0,
               "slot": "4",
               "type": "t_mapping(t_address,t_uint256)",
               "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:109"
+              "src": "contracts\\FlameBornEngine.sol:98"
+            },
+            {
+              "label": "totalDonations",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_uint256",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:101"
+            },
+            {
+              "label": "actors",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_mapping(t_address,t_struct(Actor)1246_storage)",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:105"
+            },
+            {
+              "label": "questRewards",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:110"
             }
           ],
           "types": {
@@ -2702,7 +1021,75 @@
               "label": "bytes32",
               "numberOfBytes": "32"
             },
-            "t_enum(ActorRole)865": {
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes32,t_struct(RoleData)26_storage)": {
+              "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+              "numberOfBytes": "32"
+            },
+            "t_struct(AccessControlStorage)36_storage": {
+              "label": "struct AccessControlUpgradeable.AccessControlStorage",
+              "members": [
+                {
+                  "label": "_roles",
+                  "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(InitializableStorage)147_storage": {
+              "label": "struct Initializable.InitializableStorage",
+              "members": [
+                {
+                  "label": "_initialized",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "_initializing",
+                  "type": "t_bool",
+                  "offset": 8,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(RoleData)26_storage": {
+              "label": "struct AccessControlUpgradeable.RoleData",
+              "members": [
+                {
+                  "label": "hasRole",
+                  "type": "t_mapping(t_address,t_bool)",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "adminRole",
+                  "type": "t_bytes32",
+                  "offset": 0,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            },
+            "t_contract(IFlameBornToken)1197": {
+              "label": "contract IFlameBornToken",
+              "numberOfBytes": "20"
+            },
+            "t_contract(IHealthIDNFT)1208": {
+              "label": "contract IHealthIDNFT",
+              "numberOfBytes": "20"
+            },
+            "t_enum(ActorRole)1233": {
               "label": "enum FlameBornEngine.ActorRole",
               "members": [
                 "Unset",
@@ -2714,11 +1101,7 @@
               ],
               "numberOfBytes": "1"
             },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
+            "t_mapping(t_address,t_struct(Actor)1246_storage)": {
               "label": "mapping(address => struct FlameBornEngine.Actor)",
               "numberOfBytes": "32"
             },
@@ -2726,15 +1109,11 @@
               "label": "mapping(address => uint256)",
               "numberOfBytes": "32"
             },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
             "t_string_storage": {
               "label": "string",
               "numberOfBytes": "32"
             },
-            "t_struct(Actor)878_storage": {
+            "t_struct(Actor)1246_storage": {
               "label": "struct FlameBornEngine.Actor",
               "members": [
                 {
@@ -2745,7 +1124,7 @@
                 },
                 {
                   "label": "role",
-                  "type": "t_enum(ActorRole)865",
+                  "type": "t_enum(ActorRole)1233",
                   "offset": 1,
                   "slot": "0"
                 },
@@ -2770,24 +1149,6 @@
               ],
               "numberOfBytes": "128"
             },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
             "t_uint256": {
               "label": "uint256",
               "numberOfBytes": "32"
@@ -2795,12 +1156,41 @@
           },
           "layoutVersion": "1.2",
           "flat": true,
-          "namespaces": {}
+          "namespaces": {
+            "erc7201:openzeppelin.storage.AccessControl": [
+              {
+                "contract": "AccessControlUpgradeable",
+                "label": "_roles",
+                "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+                "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:62",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "erc7201:openzeppelin.storage.Initializable": [
+              {
+                "contract": "Initializable",
+                "label": "_initialized",
+                "type": "t_uint64",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "contract": "Initializable",
+                "label": "_initializing",
+                "type": "t_bool",
+                "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+                "offset": 8,
+                "slot": "0"
+              }
+            ]
+          }
         },
         "solcVersion": "0.8.28"
       },
       "contracts/FlameBornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlameBornEngine.sol:25",
+        "src": "contracts\\FlameBornEngine.sol:26",
         "inherit": [
           "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
         ],
@@ -2821,7 +1211,7 @@
         "solcVersion": "0.8.28"
       },
       "contracts/FlameBornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlameBornEngine.sol:36",
+        "src": "contracts\\FlameBornEngine.sol:37",
         "inherit": [],
         "libraries": [],
         "methods": [
@@ -2834,998 +1224,6 @@
           "types": {},
           "layoutVersion": "1.2",
           "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:FlameBornEngine": {
-        "src": "contracts\\FlamebornEngine.sol:40",
-        "version": {
-          "withMetadata": "a8a69c4ac015426098de06f0962680a4ffaed6126c9dd2747091dc8b341f540a",
-          "withoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2",
-          "linkedWithoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(uint8,string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlameBornEngine",
-            "src": "contracts\\FlamebornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlamebornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlamebornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlamebornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlamebornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlamebornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlameBornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlameBornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlameBornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlamebornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlamebornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlamebornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "@openzeppelin/contracts/access/AccessControl.sol:AccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:49",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)",
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl": {
-        "src": "@openzeppelin\\contracts\\access\\IAccessControl.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "hasRole(bytes32,address)",
-          "getRoleAdmin(bytes32)",
-          "grantRole(bytes32,address)",
-          "revokeRole(bytes32,address)",
-          "renounceRole(bytes32,address)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20": {
-        "src": "@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol:9",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "totalSupply()",
-          "balanceOf(address)",
-          "transfer(address,uint256)",
-          "allowance(address,address)",
-          "approve(address,uint256)",
-          "transferFrom(address,address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Address.sol:Address": {
-        "src": "@openzeppelin\\contracts\\utils\\Address.sol:11",
-        "version": {
-          "withMetadata": "ed054ce2c98513130389087d2d590ee8417a9a8ac31e8eb102a32b183a2a62c3",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Errors.sol:Errors"
-        ],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "delegatecall",
-            "src": "@openzeppelin\\contracts\\utils\\Address.sol:97"
-          }
-        ],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Context.sol:Context": {
-        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/Errors.sol:Errors": {
-        "src": "@openzeppelin\\contracts\\utils\\Errors.sol:14",
-        "version": {
-          "withMetadata": "f4274fbf3d6c2176ae1e148ca1fd3dfab68a3b73bfcb548e61464f49be6c8d86",
-          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
-          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol:20",
-        "inherit": [
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165"
-        ],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165": {
-        "src": "@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol:15",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "supportsInterface(bytes4)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlameBornEngine.sol:FlameBornEngine": {
-        "src": "contracts\\FlameBornEngine.sol:40",
-        "version": {
-          "withMetadata": "170c994b38845948b16360b7d02f360e9803b68b0f3223e479b2fea199a3c7e7",
-          "withoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2",
-          "linkedWithoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(uint8,string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlameBornEngine",
-            "src": "contracts\\FlameBornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlameBornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlameBornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlameBornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlameBornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)22_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)878_storage)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)865": {
-              "label": "enum FlameBornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)878_storage)": {
-              "label": "mapping(address => struct FlameBornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)22_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)878_storage": {
-              "label": "struct FlameBornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)865",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)22_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlameBornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlameBornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlameBornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlameBornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      }
-    },
-    {
-      "contracts/TestContract.sol:TestContract": {
-        "src": "contracts\\TestContract.sol:4",
-        "version": {
-          "withMetadata": "865820af68d63febc1f38a740070ff128d8e3e1d998c76875fe2302fb14880c7",
-          "withoutMetadata": "18f0e54f6e489448e9f38feb89e4a0c20a55dda8f2a93c5a6e55968ed575891d",
-          "linkedWithoutMetadata": "18f0e54f6e489448e9f38feb89e4a0c20a55dda8f2a93c5a6e55968ed575891d"
-        },
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "setGreeting(string)",
-          "getGreeting()"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "state-variable-assignment",
-            "name": "greeting",
-            "src": "contracts\\TestContract.sol:5"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "greeting",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_string_storage",
-              "contract": "TestContract",
-              "src": "contracts\\TestContract.sol:5"
-            }
-          ],
-          "types": {
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
           "namespaces": {}
         },
         "solcVersion": "0.8.28"
@@ -6219,6 +3617,253 @@
         },
         "solcVersion": "0.8.28"
       },
+      "contracts/FlameBornEngine.sol:FlameBornEngine": {
+        "src": "contracts\\FlameBornEngine.sol:40",
+        "version": {
+          "withMetadata": "9aea5dd2a1653da3e42d967067aa69b0a47256046bf9144eddb94f04ab45abf1",
+          "withoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1",
+          "linkedWithoutMetadata": "79483d9d98ce92c2c84e108ce57c023f3c5f6d847d18c02df9f2da5e9583d4c1"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
+          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
+          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
+          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "@openzeppelin/contracts/utils/Address.sol:Address"
+        ],
+        "methods": [
+          "(address,address,address,uint256,uint256)",
+          "donate()",
+          "withdrawDonations(address payable)",
+          "verifyActor(address,uint8,string,string,string)",
+          "tokenURIForActor(string)",
+          "awardQuest(address,uint256,string)",
+          "isVerifiedActor(address)",
+          "getActor(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:131"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "token",
+            "src": "contracts\\FlameBornEngine.sol:83"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "credentialNFT",
+            "src": "contracts\\FlameBornEngine.sol:87"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "actorReward",
+            "src": "contracts\\FlameBornEngine.sol:90"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "donationRewardRate",
+            "src": "contracts\\FlameBornEngine.sol:94"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_roles",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_bytes32,t_struct(RoleData)2226_storage)",
+              "contract": "AccessControl",
+              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
+            },
+            {
+              "label": "donorBalances",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:97"
+            },
+            {
+              "label": "totalDonations",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:100"
+            },
+            {
+              "label": "actors",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_address,t_struct(Actor)10540_storage)",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:104"
+            },
+            {
+              "label": "questRewards",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "FlameBornEngine",
+              "src": "contracts\\FlameBornEngine.sol:109"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_enum(ActorRole)10527": {
+              "label": "enum FlameBornEngine.ActorRole",
+              "members": [
+                "Unset",
+                "Doctor",
+                "Nurse",
+                "Clinic",
+                "OutreachTeam",
+                "CommunityHealthWorker"
+              ],
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_struct(Actor)10540_storage)": {
+              "label": "mapping(address => struct FlameBornEngine.Actor)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes32,t_struct(RoleData)2226_storage)": {
+              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Actor)10540_storage": {
+              "label": "struct FlameBornEngine.Actor",
+              "members": [
+                {
+                  "label": "verified",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "role",
+                  "type": "t_enum(ActorRole)10527",
+                  "offset": 1,
+                  "slot": "0"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "licenseId",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "phone",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "3"
+                }
+              ],
+              "numberOfBytes": "128"
+            },
+            "t_struct(RoleData)2226_storage": {
+              "label": "struct AccessControl.RoleData",
+              "members": [
+                {
+                  "label": "hasRole",
+                  "type": "t_mapping(t_address,t_bool)",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "adminRole",
+                  "type": "t_bytes32",
+                  "offset": 0,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      },
+      "contracts/FlameBornEngine.sol:IFlameBornToken": {
+        "src": "contracts\\FlameBornEngine.sol:25",
+        "inherit": [
+          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "mint(address,uint256)",
+          "burn(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      },
+      "contracts/FlameBornEngine.sol:IHealthIDNFT": {
+        "src": "contracts\\FlameBornEngine.sol:36",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "mintCredential(address,uint256,string)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      },
       "contracts/FlameBornToken.sol:FlameBornToken": {
         "src": "contracts\\FlameBornToken.sol:17",
         "version": {
@@ -6542,253 +4187,6 @@
         },
         "solcVersion": "0.8.28"
       },
-      "contracts/FlameBornEngine.sol:FlameBornEngine": {
-        "src": "contracts\\FlameBornEngine.sol:40",
-        "version": {
-          "withMetadata": "eb4725d504701a0f523efc5458d3b03699f8f23755c2abe40292f13c43d8f350",
-          "withoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2",
-          "linkedWithoutMetadata": "c9c0c12b7de413b9ff04208d43c25ccc68de50defd3ec3388045330bd66a03d2"
-        },
-        "inherit": [
-          "@openzeppelin/contracts/access/AccessControl.sol:AccessControl",
-          "@openzeppelin/contracts/utils/introspection/ERC165.sol:ERC165",
-          "@openzeppelin/contracts/utils/introspection/IERC165.sol:IERC165",
-          "@openzeppelin/contracts/access/IAccessControl.sol:IAccessControl",
-          "@openzeppelin/contracts/utils/Context.sol:Context"
-        ],
-        "libraries": [
-          "@openzeppelin/contracts/utils/Address.sol:Address"
-        ],
-        "methods": [
-          "(address,address,address,uint256,uint256)",
-          "donate()",
-          "withdrawDonations(address payable)",
-          "verifyActor(address,uint8,string,string,string)",
-          "tokenURIForActor(uint8,string)",
-          "awardQuest(address,uint256,string)",
-          "isVerifiedActor(address)",
-          "getActor(address)"
-        ],
-        "linkReferences": [],
-        "errors": [
-          {
-            "kind": "constructor",
-            "contract": "FlameBornEngine",
-            "src": "contracts\\FlameBornEngine.sol:131"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "token",
-            "src": "contracts\\FlameBornEngine.sol:83"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "credentialNFT",
-            "src": "contracts\\FlameBornEngine.sol:87"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "actorReward",
-            "src": "contracts\\FlameBornEngine.sol:90"
-          },
-          {
-            "kind": "state-variable-immutable",
-            "name": "donationRewardRate",
-            "src": "contracts\\FlameBornEngine.sol:94"
-          }
-        ],
-        "layout": {
-          "storage": [
-            {
-              "label": "_roles",
-              "offset": 0,
-              "slot": "0",
-              "type": "t_mapping(t_bytes32,t_struct(RoleData)2226_storage)",
-              "contract": "AccessControl",
-              "src": "@openzeppelin\\contracts\\access\\AccessControl.sol:55"
-            },
-            {
-              "label": "donorBalances",
-              "offset": 0,
-              "slot": "1",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:97"
-            },
-            {
-              "label": "totalDonations",
-              "offset": 0,
-              "slot": "2",
-              "type": "t_uint256",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:100"
-            },
-            {
-              "label": "actors",
-              "offset": 0,
-              "slot": "3",
-              "type": "t_mapping(t_address,t_struct(Actor)10683_storage)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:104"
-            },
-            {
-              "label": "questRewards",
-              "offset": 0,
-              "slot": "4",
-              "type": "t_mapping(t_address,t_uint256)",
-              "contract": "FlameBornEngine",
-              "src": "contracts\\FlameBornEngine.sol:109"
-            }
-          ],
-          "types": {
-            "t_address": {
-              "label": "address",
-              "numberOfBytes": "20"
-            },
-            "t_bool": {
-              "label": "bool",
-              "numberOfBytes": "1"
-            },
-            "t_bytes32": {
-              "label": "bytes32",
-              "numberOfBytes": "32"
-            },
-            "t_enum(ActorRole)10670": {
-              "label": "enum FlameBornEngine.ActorRole",
-              "members": [
-                "Unset",
-                "Doctor",
-                "Nurse",
-                "Clinic",
-                "OutreachTeam",
-                "CommunityHealthWorker"
-              ],
-              "numberOfBytes": "1"
-            },
-            "t_mapping(t_address,t_bool)": {
-              "label": "mapping(address => bool)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_struct(Actor)10683_storage)": {
-              "label": "mapping(address => struct FlameBornEngine.Actor)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_address,t_uint256)": {
-              "label": "mapping(address => uint256)",
-              "numberOfBytes": "32"
-            },
-            "t_mapping(t_bytes32,t_struct(RoleData)2226_storage)": {
-              "label": "mapping(bytes32 => struct AccessControl.RoleData)",
-              "numberOfBytes": "32"
-            },
-            "t_string_storage": {
-              "label": "string",
-              "numberOfBytes": "32"
-            },
-            "t_struct(Actor)10683_storage": {
-              "label": "struct FlameBornEngine.Actor",
-              "members": [
-                {
-                  "label": "verified",
-                  "type": "t_bool",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "role",
-                  "type": "t_enum(ActorRole)10670",
-                  "offset": 1,
-                  "slot": "0"
-                },
-                {
-                  "label": "name",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "1"
-                },
-                {
-                  "label": "licenseId",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "2"
-                },
-                {
-                  "label": "phone",
-                  "type": "t_string_storage",
-                  "offset": 0,
-                  "slot": "3"
-                }
-              ],
-              "numberOfBytes": "128"
-            },
-            "t_struct(RoleData)2226_storage": {
-              "label": "struct AccessControl.RoleData",
-              "members": [
-                {
-                  "label": "hasRole",
-                  "type": "t_mapping(t_address,t_bool)",
-                  "offset": 0,
-                  "slot": "0"
-                },
-                {
-                  "label": "adminRole",
-                  "type": "t_bytes32",
-                  "offset": 0,
-                  "slot": "1"
-                }
-              ],
-              "numberOfBytes": "64"
-            },
-            "t_uint256": {
-              "label": "uint256",
-              "numberOfBytes": "32"
-            }
-          },
-          "layoutVersion": "1.2",
-          "flat": true,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlameBornEngine.sol:IFlameBornToken": {
-        "src": "contracts\\FlameBornEngine.sol:25",
-        "inherit": [
-          "@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20"
-        ],
-        "libraries": [],
-        "methods": [
-          "mint(address,uint256)",
-          "burn(address,uint256)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
-      "contracts/FlameBornEngine.sol:IHealthIDNFT": {
-        "src": "contracts\\FlameBornEngine.sol:36",
-        "inherit": [],
-        "libraries": [],
-        "methods": [
-          "mintCredential(address,uint256,string)"
-        ],
-        "linkReferences": [],
-        "errors": [],
-        "layout": {
-          "storage": [],
-          "types": {},
-          "layoutVersion": "1.2",
-          "flat": false,
-          "namespaces": {}
-        },
-        "solcVersion": "0.8.28"
-      },
       "contracts/HealthIDNFT.sol:HealthIDNFT": {
         "src": "contracts\\HealthIDNFT.sol:12",
         "version": {
@@ -7019,6 +4417,50 @@
             },
             "t_uint256": {
               "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.28"
+      },
+      "contracts/TestContract.sol:TestContract": {
+        "src": "contracts\\TestContract.sol:4",
+        "version": {
+          "withMetadata": "865820af68d63febc1f38a740070ff128d8e3e1d998c76875fe2302fb14880c7",
+          "withoutMetadata": "18f0e54f6e489448e9f38feb89e4a0c20a55dda8f2a93c5a6e55968ed575891d",
+          "linkedWithoutMetadata": "18f0e54f6e489448e9f38feb89e4a0c20a55dda8f2a93c5a6e55968ed575891d"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "setGreeting(string)",
+          "getGreeting()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "state-variable-assignment",
+            "name": "greeting",
+            "src": "contracts\\TestContract.sol:5"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "greeting",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "TestContract",
+              "src": "contracts\\TestContract.sol:5"
+            }
+          ],
+          "types": {
+            "t_string_storage": {
+              "label": "string",
               "numberOfBytes": "32"
             }
           },
