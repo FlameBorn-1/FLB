@@ -84,7 +84,7 @@ contract FlameBornEngine is AccessControl {
 
     /// @dev The soul‑bound credential NFT contract.  Verified actors
     /// receive a credential when they are registered.
-    IHealthIDNFT public immutable credentialNFT;
+    IHealthIDNFT public immutable HealthIDNFT;
 
     /// @dev Reward amount in FLB paid out when a health actor is verified.
     uint256 public immutable actorReward;
@@ -123,24 +123,24 @@ contract FlameBornEngine is AccessControl {
      * REGISTRAR_ROLE and QUEST_ADMIN_ROLE by default.  Make sure this is a
      * multisig or a well‑secured address.
      * @param _token The FLB token contract.
-     * @param _credentialNFT The soul‑bound credential NFT contract.
+     * @param _HealthIDNFT The soul‑bound credential NFT contract.
      * @param _actorReward The amount of FLB minted when a health actor is verified.
      * @param _donationRewardRate The conversion rate from ETH to FLB when donating.
      */
     constructor(
         address admin,
         IFlameBornToken _token,
-        IHealthIDNFT _credentialNFT,
+        IHealthIDNFT _HealthIDNFT,
         uint256 _actorReward,
         uint256 _donationRewardRate
     ) {
         require(admin != address(0), "Admin address required");
         require(address(_token) != address(0), "Token address required");
-        require(address(_credentialNFT) != address(0), "Credential NFT required");
+        require(address(_HealthIDNFT) != address(0), "Credential NFT required");
         require(_donationRewardRate > 0, "Donation reward rate must be > 0");
 
         token = _token;
-        credentialNFT = _credentialNFT;
+        HealthIDNFT = _HealthIDNFT;
         actorReward = _actorReward;
         donationRewardRate = _donationRewardRate;
 
@@ -215,7 +215,7 @@ contract FlameBornEngine is AccessControl {
         // to ensure uniqueness.  The metadata URI can be computed off‑chain
         // (e.g., IPFS) and passed here; for simplicity we derive from name.
         string memory uri = tokenURIForActor(name);
-        credentialNFT.mintCredential(actorAddress, uint256(uint160(actorAddress)), uri);
+        HealthIDNFT.mintCredential(actorAddress, uint256(uint160(actorAddress)), uri);
 
         // Mint FLB reward
         token.mint(actorAddress, actorReward);
