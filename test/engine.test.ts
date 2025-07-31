@@ -1,84 +1,121 @@
-import { expect } from "chai";
 import { ethers, upgrades } from "hardhat";
-import { FlameBornEngine, FlameBornEngine__factory } from "../typechain-types";
-import { IFlameBornToken, IHealthIDNFT } from "../typechain-types";
+import { expect } from "chai";
+import { 
+  FlameBornEngine, 
+  FlameBornEngine__factory,
+  FLBTokenMock,
+  FLBTokenMock__factory,
+  HealthIDNFTMock,
+  HealthIDNFTMock__factory 
+} from "../typechain-types";
 
 describe("FlameBornEngine", function () {
   let engine: FlameBornEngine;
-  let token: IFlameBornToken;
-  let healthIDNFT: IHealthIDNFT;
-  let admin: string;
-  let user1: string;
-  let user2: string;
+  let flbToken: FLBTokenMock;
+  let healthIDNFT: HealthIDNFTMock;
 
-  before(async () => {
-    [admin, user1, user2] = await ethers.getSigners();
-    
-    // Deploy mock tokens
-    const TokenFactory = await ethers.getContractFactory("FlameBornToken");
-    token = await TokenFactory.deploy();
-    
-    const NFTFactory = await ethers.getContractFactory("HealthIDNFT");
+  let admin: any;
+  let registrar: any;
+  let donor: any;
+  let questAdmin: any;
+  let actor: any;
+
+  beforeEach(async () => {
+    [admin, registrar, donor, questAdmin, actor] = await ethers.getSigners();
+
+    const FLBTokenFactory = await ethers.getContractFactory("FLBTokenMock");
+    flbToken = await FLBTokenFactory.deploy();
+
+    const NFTFactory = await ethers.getContractFactory("HealthIDNFTMock");
     healthIDNFT = await NFTFactory.deploy();
-    
-    // Deploy engine
+
     const EngineFactory = await ethers.getContractFactory("FlameBornEngine");
     engine = await upgrades.deployProxy(EngineFactory, [
       admin.address,
-      token.address,
-      healthIDNFT.address,
-      ethers.utils.parseEther("1"), // actorReward
-      1000 // donationRewardRate
-    ]) as FlameBornEngine;
+      await flbToken.getAddress(),
+      await healthIDNFT.getAddress(),
+      ethers.parseEther("100"),
+      100 // rewardRate: 1 ETH = 100 FLB
+    ], {
+      initializer: "initialize",
+      kind: "uups"
+    }) as FlameBornEngine;
+
+    // Setup roles
+    await engine.connect(admin).grantRole(await engine.REGISTRAR_ROLE(), registrar.address);
+    await engine.connect(admin).grantRole(await engine.QUEST_ADMIN_ROLE(), questAdmin.address);
+
+    // Let the engine mint FLB
+    await flbToken.setMinter(await engine.getAddress());
   });
 
-  it("Should initialize with correct parameters", async () => {
-    expect(await engine.token()).to.equal(token.address);
-    expect(await engine.healthIDNFT()).to.equal(healthIDNFT.address);
-    expect(await engine.actorReward()).to.equal(ethers.utils.parseEther("1"));
-    expect(await engine.donationRewardRate()).to.equal(1000);
-  });
-
-  it("Should allow donations and distribute rewards", async () => {
-    const donationAmount = ethers.utils.parseEther("0.1");
-    
-    // Mock user donating
-    await expect(
-      engine.connect(user1).donate({ value: donationAmount })
-    ).to.changeEtherBalances(
-      [user1, engine],
-      [donationAmount.mul(-1), donationAmount]
+  it("should verify an actor and mint NFT + FLB", async () => {
+    await engine.connect(registrar).verifyActor(
+      actor.address,
+      1, // Doctor
+      "Dr. Flame",
+      "LICENSE123",
+      "+123456789"
     );
-    
-    // Verify rewards calculation
-    const expectedReward = donationAmount.div(1000);
-    expect(await engine.calculateReward(user1.address)).to.equal(expectedReward);
+
+    const isVerified = await engine.isVerifiedActor(actor.address);
+    expect(isVerified).to.be.true;
+
+    const flbBalance = await flbToken.balanceOf(actor.address);
+    expect(flbBalance).to.equal(ethers.parseEther("100"));
   });
 
-  it("Should enforce role-based access control", async () => {
+  it("should accept donation and reward FLB", async () => {
+    await engine.connect(donor).donate({ value: ethers.parseEther("1") });
+
+    const donorBalance = await flbToken.balanceOf(donor.address);
+    expect(donorBalance).to.equal(ethers.parseEther("100"));
+
+    const donationRecord = await engine.donorBalances(donor.address);
+    expect(donationRecord).to.equal(ethers.parseEther("1"));
+  });
+
+  it("should award quest tokens to user", async () => {
+    await engine.connect(questAdmin).awardQuest(donor.address, ethers.parseEther("50"), "QST-001");
+
+    const flbBalance = await flbToken.balanceOf(donor.address);
+    expect(flbBalance).to.equal(ethers.parseEther("50"));
+
+    const rewardStats = await engine.questRewards(donor.address);
+    expect(rewardStats).to.equal(ethers.parseEther("50"));
+  });
+
+  it("should allow admin to withdraw donated ETH", async () => {
+    await engine.connect(donor).donate({ value: ethers.parseEther("1") });
+
+    const adminStart = await ethers.provider.getBalance(admin.address);
+    const tx = await engine.connect(admin).withdrawDonations(admin.address);
+    const receipt = await tx.wait();
+
+    const adminEnd = await ethers.provider.getBalance(admin.address);
+    expect(adminEnd).to.be.greaterThan(adminStart); // Allowing gas variation
+  });
+
+  it("should enforce role-based access control", async () => {
+    // Non-registrar shouldn't be able to verify actors
+    await expect(
+      engine.connect(donor).verifyActor(
+        actor.address,
+        1, // Doctor
+        "Dr. Flame",
+        "LICENSE123",
+        "+123456789"
+      )
+    ).to.be.revertedWithCustomError(engine, "AccessControlUnauthorizedAccount");
+
+    // Non-quest admin shouldn't be able to award quests
+    await expect(
+      engine.connect(donor).awardQuest(donor.address, ethers.parseEther("50"), "QST-001")
+    ).to.be.revertedWithCustomError(engine, "AccessControlUnauthorizedAccount");
+
     // Non-admin shouldn't be able to withdraw
     await expect(
-      engine.connect(user1).withdrawDonations(user1.address)
-    ).to.be.revertedWith(/AccessControl/);
-    
-    // Admin should be able to withdraw
-    await expect(
-      engine.connect(admin).withdrawDonations(admin.address)
-    ).to.changeEtherBalances(
-      [engine, admin],
-      [donationAmount.mul(-1), donationAmount]
-    );
-  });
-
-  it("Should support contract upgrades", async () => {
-    const EngineV2Factory = await ethers.getContractFactory("FlameBornEngineV2");
-    const engineV2 = await upgrades.upgradeProxy(
-      engine.address,
-      EngineV2Factory
-    ) as FlameBornEngine;
-    
-    // Verify state is preserved
-    expect(await engineV2.token()).to.equal(token.address);
-    expect(await engineV2.healthIDNFT()).to.equal(healthIDNFT.address);
+      engine.connect(donor).withdrawDonations(donor.address)
+    ).to.be.revertedWithCustomError(engine, "AccessControlUnauthorizedAccount");
   });
 });

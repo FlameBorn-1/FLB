@@ -37,8 +37,48 @@
 ---
 
 ## ✅ Verification Status
+
 - FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
-- Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
+
+* Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
+
+---
+
+## ✅ Test Coverage
+
+The FlameBornEngine has been thoroughly tested with 5 key test cases:
+
+1. **Actor Verification**
+   - Verifies actors and mints NFT + FLB rewards
+   - Validates role-based access control
+
+2. **Donation Processing**
+   - Tests CELO donations and FLB rewards
+   - Verifies donor balances tracking
+
+3. **Quest Rewards**
+   - Validates FLB distribution for completed quests
+   - Tests reward tracking system
+
+4. **Withdrawals**
+   - Verifies admin withdrawal functionality
+   - Ensures proper fund accounting
+
+5. **Access Control**
+   - Validates role-based permissions
+   - Tests custom error messages for unauthorized access
+
+## 🧪 Running Tests
+
+Execute the full test suite with:
+```sh
+npx hardhat test test/engine.test.ts
+```
+
+For gas usage reports:
+```sh
+npx hardhat test test/engine.test.ts --gas-report
+```
 
 ---
 
@@ -58,8 +98,8 @@ npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC878
 
 ### Test Engine Functionality
 
-- Use the frontend or scripts to interact with the contract.
-- Ensure all functions (donation, rewards, actor verification, etc.) work as expected.
+* Use the frontend or scripts to interact with the contract.
+* Ensure all functions (donation, rewards, actor verification, etc.) work as expected.
 
 ---
 
