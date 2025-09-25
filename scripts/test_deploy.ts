@@ -28,7 +28,7 @@ async function main() {
     console.log("✅ TestContract deployed to:", address);
     
     console.log("\n3. Testing contract interaction...");
-    const greeting = await testContract.greeting();
+    const greeting = await testContract.getGreeting();
     console.log("Initial greeting:", greeting);
     
     console.log("\n🎉 Test deployment completed successfully!");

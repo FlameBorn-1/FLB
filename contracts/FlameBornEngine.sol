@@ -14,7 +14,7 @@ interface IFlameBornToken is IERC20 {
 }
 
 interface IHealthIDNFT {
-    function mintCredential(address to, uint256 tokenId, string calldata uri) external;
+    function mintWithMetadata(address to, string calldata uri) external returns (uint256);
 }
 
 contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgradeable, ReentrancyGuardUpgradeable {
@@ -22,6 +22,9 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
     // Roles
     bytes32 public constant REGISTRAR_ROLE = keccak256("REGISTRAR_ROLE");
     bytes32 public constant QUEST_ADMIN_ROLE = keccak256("QUEST_ADMIN_ROLE");
+
+    // UI Tag
+    string public constant ENGINE_TAG = "FLB-EN"; // UI-only marker
 
     // Actor types
     enum ActorRole {
@@ -127,7 +130,7 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
         });
 
         string memory uri = tokenURIForActor(name);
-        healthIDNFT.mintCredential(actorAddress, uint256(uint160(actorAddress)), uri);
+        healthIDNFT.mintWithMetadata(actorAddress, uri);
         token.mint(actorAddress, actorReward);
 
         emit ActorVerified(actorAddress, role, name);
@@ -160,6 +163,10 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
 
     function tokenURIForActor(string memory name) public pure returns (string memory) {
         return string(abi.encodePacked("https://example.com/metadata/", name));
+    }
+
+    function engineTag() external pure returns (string memory) {
+        return ENGINE_TAG;
     }
 
     function _authorizeUpgrade(address) internal override onlyRole(DEFAULT_ADMIN_ROLE) {}

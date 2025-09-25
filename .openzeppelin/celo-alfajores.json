@@ -15,6 +15,26 @@
       "address": "0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6",
       "txHash": "0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9",
       "kind": "uups"
+    },
+    {
+      "address": "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1",
+      "txHash": "0x080434b54b2bf73b32ab1b88a22d76559f6b816d3d926c1361336e63d29bd16a",
+      "kind": "uups"
+    },
+    {
+      "address": "0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4",
+      "txHash": "0x4ddd8b91aef04efd8dc5b20702826f989354430a7dfdcee950894945b419e59e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9dd942FB93449107D6f169F988a32c29cD551a21",
+      "txHash": "0x0fcfc021c94a831e417a01148ea5931992f32fb8d97306cf81d03d1f9a742616",
+      "kind": "uups"
+    },
+    {
+      "address": "0x4232284DFe5424E4f80c4BB4e28dB482B2f7e1C1",
+      "txHash": "0x27e3dd756bf2639adeae3f8ff326631994c15aafecf5f3645e49cb063a3a5570",
+      "kind": "uups"
     }
   ],
   "impls": {
@@ -587,7 +607,7 @@
             "label": "token",
             "offset": 0,
             "slot": "0",
-            "type": "t_contract(IFlameBornToken)1967",
+            "type": "t_contract(IFlameBornToken)8940",
             "contract": "FlameBornEngine",
             "src": "contracts\\FlameBornEngine.sol:44"
           },
@@ -595,7 +615,7 @@
             "label": "healthIDNFT",
             "offset": 0,
             "slot": "1",
-            "type": "t_contract(IHealthIDNFT)1977",
+            "type": "t_contract(IHealthIDNFT)8950",
             "contract": "FlameBornEngine",
             "src": "contracts\\FlameBornEngine.sol:45"
           },
@@ -635,7 +655,7 @@
             "label": "actors",
             "offset": 0,
             "slot": "6",
-            "type": "t_mapping(t_address,t_struct(Actor)2014_storage)",
+            "type": "t_mapping(t_address,t_struct(Actor)8987_storage)",
             "contract": "FlameBornEngine",
             "src": "contracts\\FlameBornEngine.sol:52"
           },
@@ -737,15 +757,15 @@
             "label": "uint64",
             "numberOfBytes": "8"
           },
-          "t_contract(IFlameBornToken)1967": {
+          "t_contract(IFlameBornToken)8940": {
             "label": "contract IFlameBornToken",
             "numberOfBytes": "20"
           },
-          "t_contract(IHealthIDNFT)1977": {
+          "t_contract(IHealthIDNFT)8950": {
             "label": "contract IHealthIDNFT",
             "numberOfBytes": "20"
           },
-          "t_enum(ActorRole)2002": {
+          "t_enum(ActorRole)8975": {
             "label": "enum FlameBornEngine.ActorRole",
             "members": [
               "Unset",
@@ -757,7 +777,7 @@
             ],
             "numberOfBytes": "1"
           },
-          "t_mapping(t_address,t_struct(Actor)2014_storage)": {
+          "t_mapping(t_address,t_struct(Actor)8987_storage)": {
             "label": "mapping(address => struct FlameBornEngine.Actor)",
             "numberOfBytes": "32"
           },
@@ -769,7 +789,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Actor)2014_storage": {
+          "t_struct(Actor)8987_storage": {
             "label": "struct FlameBornEngine.Actor",
             "members": [
               {
@@ -780,7 +800,278 @@
               },
               {
                 "label": "role",
-                "type": "t_enum(ActorRole)2002",
+                "type": "t_enum(ActorRole)8975",
+                "offset": 1,
+                "slot": "0"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "licenseId",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "phone",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.ReentrancyGuard": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin\\contracts-upgradeable\\utils\\ReentrancyGuardUpgradeable.sol:43",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.AccessControl": [
+            {
+              "contract": "AccessControlUpgradeable",
+              "label": "_roles",
+              "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:62",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "e1f419cdd336745caee533c3cafe481148c26aa175a50906eb620827c7434d2f": {
+      "address": "0xE8CEb669437E93208D605dE18433E46297F21cb1",
+      "txHash": "0xf16d8fc88e4c83d63f317f9f57e5b06adb6b673d2cfb327bda6417e5f9d6dc67",
+      "layout": {
+        "solcVersion": "0.8.28",
+        "storage": [
+          {
+            "label": "token",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IFlameBornToken)1967",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:47"
+          },
+          {
+            "label": "healthIDNFT",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_contract(IHealthIDNFT)1977",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:48"
+          },
+          {
+            "label": "actorReward",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:49"
+          },
+          {
+            "label": "donationRewardRate",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:50"
+          },
+          {
+            "label": "totalDonations",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:51"
+          },
+          {
+            "label": "donorBalances",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:54"
+          },
+          {
+            "label": "actors",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_struct(Actor)2017_storage)",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:55"
+          },
+          {
+            "label": "questRewards",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "FlameBornEngine",
+            "src": "contracts\\FlameBornEngine.sol:56"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)26_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(AccessControlStorage)36_storage": {
+            "label": "struct AccessControlUpgradeable.AccessControlStorage",
+            "members": [
+              {
+                "label": "_roles",
+                "type": "t_mapping(t_bytes32,t_struct(RoleData)26_storage)",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(InitializableStorage)147_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(ReentrancyGuardStorage)300_storage": {
+            "label": "struct ReentrancyGuardUpgradeable.ReentrancyGuardStorage",
+            "members": [
+              {
+                "label": "_status",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(RoleData)26_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "hasRole",
+                "type": "t_mapping(t_address,t_bool)",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_contract(IFlameBornToken)1967": {
+            "label": "contract IFlameBornToken",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IHealthIDNFT)1977": {
+            "label": "contract IHealthIDNFT",
+            "numberOfBytes": "20"
+          },
+          "t_enum(ActorRole)2005": {
+            "label": "enum FlameBornEngine.ActorRole",
+            "members": [
+              "Unset",
+              "Doctor",
+              "Nurse",
+              "Clinic",
+              "OutreachTeam",
+              "CommunityHealthWorker"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(Actor)2017_storage)": {
+            "label": "mapping(address => struct FlameBornEngine.Actor)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Actor)2017_storage": {
+            "label": "struct FlameBornEngine.Actor",
+            "members": [
+              {
+                "label": "verified",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "role",
+                "type": "t_enum(ActorRole)2005",
                 "offset": 1,
                 "slot": "0"
               },

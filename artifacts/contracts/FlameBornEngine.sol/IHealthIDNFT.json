@@ -11,18 +11,19 @@
           "type": "address"
         },
         {
-          "internalType": "uint256",
-          "name": "tokenId",
-          "type": "uint256"
-        },
-        {
           "internalType": "string",
           "name": "uri",
           "type": "string"
         }
       ],
-      "name": "mintCredential",
-      "outputs": [],
+      "name": "mintWithMetadata",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
       "stateMutability": "nonpayable",
       "type": "function"
     }

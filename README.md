@@ -8,26 +8,27 @@
 
 ### ✅ FlameBornToken (ERC20)
 
-* **Proxy Address**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
+* **Proxy Address**: `0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1`
 * **Implementation Address**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1)
 * **Deployer**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
 
-### 🏥 HealthIDNFT (Soulbound NFT)
+### 🏥 FlameBornHealthIDNFT (FLB-HNFT)
 
-* **Contract Address**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
+* **Contract Address**: `0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8`
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8)
 * **Type**: Soulbound NFT with Role-Based Access Control
 * **Features**: Non-transferable, Auto-Increment Token IDs, Metadata URI, Minter/Admin roles
 
-### 🔥 FlameBornEngine
+### 🔥 FlameBornEngine (FLB-E)
 
-* **Contract Address**: `0xfF4ea30aC26665B687e023375c6f8AD929cC8788`
-* **Implementation Address**: `0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xfF4ea30aC26665B687e023375c6f8AD929cC8788)
+* **Proxy Address**: `0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4`
+* **Implementation Address**: `0xE8CEb669437E93208D605dE18433E46297F21cb1`
+* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4)
+* **Tag**: `FLB-EN`
 * **Linked Contracts**:
-  * **FLB Token**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
-  * **HealthIDNFT**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
+  * **FLB Token**: `0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1`
+  * **HealthIDNFT**: `0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8`
 * **Features**:
   * Role-driven interaction logic
   * Reward distribution (FLB)
@@ -36,23 +37,14 @@
 
 ---
 
-## Alfajores Testnet Deployment
 
-**Contract Addresses**
-
-* FlameBornEngine (Proxy): [0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6](https://alfajores.celoscan.io/address/0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6)
-* Implementation: [0x632446C0C9FBa5bF97733042F2B6F1aB2009A817](https://alfajores.celoscan.io/address/0x632446C0C9FBa5bF97733042F2B6F1aB2009A817)
-
-**Deployment TX**
-[0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9](https://alfajores.celoscan.io/tx/0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9)
-
----
 
 ## ✅ Verification Status
 
-* FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
-* HealthIDNFT [verified on Celoscan](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919#code)
-* Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
+* FlameBornToken implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502#code)
+* FlameBornHealthIDNFT [verified on Celoscan](https://alfajores.celoscan.io/address/0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8#code)
+* FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0xE8CEb669437E93208D605dE18433E46297F21cb1#code)
+* Proxy contracts are linked to their implementations.
 
 ---
 
@@ -292,8 +284,9 @@ See [LICENSE](LICENSE) for details.
 ## 🔗 Links
 
 * 💾 [GitHub Repo](https://github.com/FlameBorn-1/FLB)
-* 🔥 [FLB Token](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
-* 🩺 [HealthIDNFT](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
+* 🔥 [FLB Token](https://alfajores.celoscan.io/token/0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1)
+* 🩺 [FlameBornHealthIDNFT](https://alfajores.celoscan.io/token/0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8)
+* 🔥 [FlameBornEngine](https://alfajores.celoscan.io/address/0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4)
 * 🧠 [Celo](https://celo.org/)
 * 🧱 [OpenZeppelin](https://openzeppelin.com/)
 

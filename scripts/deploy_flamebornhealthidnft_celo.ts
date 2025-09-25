@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  console.log("🏥 Deploying HealthIDNFT to Celo Alfajores...");
+  console.log("🏥 Deploying FlameBornHealthIDNFT to Celo Alfajores...");
   
   // Get the deployer account
   const [deployer] = await ethers.getSigners();
@@ -16,40 +16,40 @@ async function main() {
   }
 
   // Get the contract factory
-  const HealthIDNFT = await ethers.getContractFactory("HealthIDNFT");
+  const FlameBornHealthIDNFT = await ethers.getContractFactory("FlameBornHealthIDNFT");
   
   console.log("📋 Contract deployment parameters:");
   console.log("- Admin Address:", deployer.address);
-  console.log("- Contract Name: HealthIDNFT");
-  console.log("- Contract Symbol: HEALTH");
+  console.log("- Contract Name: FlameBornHealthIDNFT");
+  console.log("- Contract Symbol: FLB-HNFT");
   console.log("- Type: Soulbound NFT (Non-transferable)");
   
   try {
     // Deploy the contract
-    console.log("🚀 Deploying HealthIDNFT contract...");
-    const healthIDNFT = await HealthIDNFT.deploy(deployer.address);
+    console.log("🚀 Deploying FlameBornHealthIDNFT contract...");
+    const flameBornHealthIDNFT = await FlameBornHealthIDNFT.deploy(deployer.address);
 
-    await healthIDNFT.waitForDeployment();
-    const contractAddress = await healthIDNFT.getAddress();
+    await flameBornHealthIDNFT.waitForDeployment();
+    const contractAddress = await flameBornHealthIDNFT.getAddress();
 
-    console.log("✅ HealthIDNFT deployed successfully!");
+    console.log("✅ FlameBornHealthIDNFT deployed successfully!");
     console.log("📍 Contract Address:", contractAddress);
     
     // Verify deployment
     console.log("\n🔍 Verifying deployment...");
-    const name = await (healthIDNFT as any).name();
-    const symbol = await (healthIDNFT as any).symbol();
-    const totalSupply = await (healthIDNFT as any).totalSupply();
-    const currentTokenId = await (healthIDNFT as any).getCurrentTokenId();
+    const name = await (flameBornHealthIDNFT as any).name();
+    const symbol = await (flameBornHealthIDNFT as any).symbol();
+    const totalSupply = await (flameBornHealthIDNFT as any).totalSupply();
+    const currentTokenId = await (flameBornHealthIDNFT as any).getCurrentTokenId();
     
     // Check roles
-    const DEFAULT_ADMIN_ROLE = await (healthIDNFT as any).DEFAULT_ADMIN_ROLE();
-    const MINTER_ROLE = await (healthIDNFT as any).MINTER_ROLE();
-    const MULTISIG_ROLE = await (healthIDNFT as any).MULTISIG_ROLE();
+    const DEFAULT_ADMIN_ROLE = await (flameBornHealthIDNFT as any).DEFAULT_ADMIN_ROLE();
+    const MINTER_ROLE = await (flameBornHealthIDNFT as any).MINTER_ROLE();
+    const MULTISIG_ROLE = await (flameBornHealthIDNFT as any).MULTISIG_ROLE();
     
-    const hasAdminRole = await (healthIDNFT as any).hasRole(DEFAULT_ADMIN_ROLE, deployer.address);
-    const hasMinterRole = await (healthIDNFT as any).hasRole(MINTER_ROLE, deployer.address);
-    const hasMultisigRole = await (healthIDNFT as any).hasRole(MULTISIG_ROLE, deployer.address);
+    const hasAdminRole = await (flameBornHealthIDNFT as any).hasRole(DEFAULT_ADMIN_ROLE, deployer.address);
+    const hasMinterRole = await (flameBornHealthIDNFT as any).hasRole(MINTER_ROLE, deployer.address);
+    const hasMultisigRole = await (flameBornHealthIDNFT as any).hasRole(MULTISIG_ROLE, deployer.address);
     
     console.log("✅ Deployment verification:");
     console.log("- Name:", name);
@@ -63,11 +63,11 @@ async function main() {
     // Test minting functionality
     console.log("\n🧪 Testing mint functionality...");
     try {
-      const mintTx = await (healthIDNFT as any).mint(deployer.address);
+      const mintTx = await (flameBornHealthIDNFT as any).mint(deployer.address);
       await mintTx.wait();
       
-      const newTotalSupply = await (healthIDNFT as any).totalSupply();
-      const ownerOfToken1 = await (healthIDNFT as any).ownerOf(1);
+      const newTotalSupply = await (flameBornHealthIDNFT as any).totalSupply();
+      const ownerOfToken1 = await (flameBornHealthIDNFT as any).ownerOf(1);
       
       console.log("✅ Test mint successful:");
       console.log("- New Total Supply:", newTotalSupply.toString());
@@ -79,13 +79,13 @@ async function main() {
     }
     
     // Get deployment transaction
-    const deploymentTx = healthIDNFT.deploymentTransaction();
+    const deploymentTx = flameBornHealthIDNFT.deploymentTransaction();
     
     // Save deployment info
     const deploymentInfo = {
       network: "alfajores",
       chainId: 44787,
-      contractName: "HealthIDNFT",
+      contractName: "FlameBornHealthIDNFT",
       contractAddress: contractAddress,
       deployer: deployer.address,
       deploymentTime: new Date().toISOString(),

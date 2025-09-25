@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
- * @title HealthIDNFT
+ * @title FlameBornHealthIDNFT
  * @dev Soulbound NFT contract for health identity tokens
  * @notice This contract creates non-transferable NFTs that represent health identities
  */
-contract HealthIDNFT is ERC721URIStorage, AccessControl {
+contract FlameBornHealthIDNFT is ERC721URIStorage, AccessControl {
     // Role definitions
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant MULTISIG_ROLE = keccak256("MULTISIG_ROLE");
@@ -40,7 +40,7 @@ contract HealthIDNFT is ERC721URIStorage, AccessControl {
      * @dev Constructor sets up the NFT with name, symbol, and initial roles
      * @param admin Address that will have admin privileges
      */
-    constructor(address admin) ERC721("HealthIDNFT", "HEALTH") {
+    constructor(address admin) ERC721("FlameBornHealthIDNFT", "FLB-HNFT") {
         if (admin == address(0)) revert AdminRequired();
 
         _grantRole(DEFAULT_ADMIN_ROLE, admin);

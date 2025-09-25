@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: MIT
-
 import { ethers, upgrades, run } from "hardhat";
 import * as fs from 'fs';
 import { join } from 'path';
@@ -10,8 +8,8 @@ import { Signer } from "ethers";
 const config = {
   // Celo Alfajores Testnet
   alfajores: {
-    flbTokenAddress: "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a",
-    healthIdNftAddress: "0x115aA20101bd0F95516Cc67ea104eD0B0c642919",
+    flbTokenAddress: "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1",
+    healthIdNftAddress: "0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8",
     actorReward: ethers.parseUnits("100", 18), // 100 FLB
     donationRewardRate: 100n, // 100 FLB per base unit of native currency (e.g., WEI for CELO)
   },
@@ -82,13 +80,13 @@ async function checkPrerequisites(deployer: Signer) {
 }
 
 async function main() {
-  console.log("🚀 Starting FlameBornEngine deployment script");
+  console.log("🚀 Starting FlameBornEngine upgrade script");
   
   const [deployer] = await ethers.getSigners();
   const network = await ethers.provider.getNetwork();
   const networkName = network.name === 'unknown' || network.name === 'homestead' ? 'localhost' : network.name;
 
-  console.log(`🔥 Deploying FlameBornEngine to ${networkName} (Chain ID: ${network.chainId})...`);
+  console.log(`🔥 Upgrading FlameBornEngine on ${networkName} (Chain ID: ${network.chainId})...`);
   
   await checkPrerequisites(deployer);
 
@@ -99,34 +97,17 @@ async function main() {
 
   const FlameBornEngine = await ethers.getContractFactory("FlameBornEngine");
   
-  const args = [
-    await deployer.getAddress(), // admin
-    networkConfig.flbTokenAddress,
-    networkConfig.healthIdNftAddress,
-    networkConfig.actorReward,
-    networkConfig.donationRewardRate,
-  ];
+  const proxyAddress = "0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4";
 
-  console.log("📋 Contract deployment parameters:");
-  console.log(`- Admin: ${args[0]}`);
-  console.log(`- FLB Token Address: ${args[1]}`);
-  console.log(`- HealthIDNFT Address: ${args[2]}`);
-  console.log(`- Actor Reward: ${ethers.formatEther(args[3])} FLB`);
-  console.log(`- Donation Reward Rate: ${args[4].toString()} FLB per base unit`);
-  
-  console.log("\n🚀 Deploying proxy...");
-  const engine = await upgrades.deployProxy(FlameBornEngine, args, {
-    initializer: "initialize",
-    kind: "uups",
-    timeout: 0, // No timeout for deployment
-  });
+  console.log("🚀 Upgrading proxy at:", proxyAddress);
+  const engine = await upgrades.upgradeProxy(proxyAddress, FlameBornEngine);
   
   await engine.waitForDeployment();
   const engineAddress = await engine.getAddress();
-  console.log("✅ FlameBornEngine (Proxy) deployed to:", engineAddress);
+  console.log("✅ FlameBornEngine (Proxy) upgraded at:", engineAddress);
   
   const implementationAddress = await upgrades.erc1967.getImplementationAddress(engineAddress);
-  console.log("🧠 Implementation address:", implementationAddress);
+  console.log("🧠 New implementation address:", implementationAddress);
   
   const deploymentInfo = {
     FlameBornEngine: {
@@ -144,10 +125,10 @@ async function main() {
   console.log(`https://alfajores.celoscan.io/address/${engineAddress}`);
   
   if (networkName !== 'localhost' && networkName !== 'hardhat') {
-    await verifyContract(engineAddress);
+    await verifyContract(implementationAddress);
   }
   
-  console.log("\n🎉 Deployment completed successfully!");
+  console.log("\n🎉 Upgrade completed successfully!");
 }
 
 // Handle script execution

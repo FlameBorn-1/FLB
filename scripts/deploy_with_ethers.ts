@@ -4,7 +4,7 @@ import { deploy } from './ethers-lib'
   try {
     const result = await deploy('FlameBornToken', [])
     console.log(`address: ${result.address}`)
-  } catch (e) {
+  } catch (e: any) {
     console.log(e.message)
   }
 })()
