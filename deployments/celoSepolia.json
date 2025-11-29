@@ -1,0 +1,58 @@
+{
+  "network": "Celo Sepolia Testnet",
+  "chainId": 11142220,
+  "rpcUrl": "https://celo-sepolia.blockscout.com/api/eth-rpc",
+  "explorer": "https://celo-sepolia.blockscout.com",
+  "deployedAt": "2025-11-29T00:00:00Z",
+  "deployer": "0x2E75287C542B9b111906D961d58f2617059dDe3c",
+  "status": "active",
+  "contracts": {
+    "FlameBornToken": {
+      "proxy": "0xb48Cc842C41d694260726FacACad556ef3483fEC",
+      "implementation": "0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60",
+      "name": "FlameBorn Token",
+      "symbol": "FLB",
+      "decimals": 18,
+      "verified": true,
+      "explorerUrl": "https://sepolia.celoscan.io/address/0xb48Cc842C41d694260726FacACad556ef3483fEC"
+    },
+    "FlameBornHealthIDNFT": {
+      "address": "0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6",
+      "name": "FlameBorn HealthID",
+      "symbol": "FLBID",
+      "verified": true,
+      "explorerUrl": "https://sepolia.celoscan.io/address/0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6"
+    },
+    "FlameBornEngine": {
+      "proxy": "0xE9Fcf860635E7B7C0a372e9aC790391168B56327",
+      "implementation": "0xb8f4795f1aE3d8f51859d9b1E13d07399db2A5C8",
+      "verified": true,
+      "explorerUrl": "https://sepolia.celoscan.io/address/0xE9Fcf860635E7B7C0a372e9aC790391168B56327"
+    },
+    "GrantManager": {
+      "address": "0x8A976c9424e1482F6Ac51C6c5f0162357C6519c2",
+      "cUSDAddress": "0x4822e58de6f5e485eF90df51C41CE01721331dC0",
+      "verified": true,
+      "explorerUrl": "https://sepolia.celoscan.io/address/0x8A976c9424e1482F6Ac51C6c5f0162357C6519c2"
+    }
+  },
+  "tokens": {
+    "cUSD": {
+      "address": "0x4822e58de6f5e485eF90df51C41CE01721331dC0",
+      "name": "Celo Dollar",
+      "symbol": "cUSD",
+      "decimals": 18,
+      "type": "stablecoin"
+    }
+  },
+  "roles": {
+    "FlameBornToken": {
+      "MINTER_ROLE": ["0xE9Fcf860635E7B7C0a372e9aC790391168B56327"],
+      "DEFAULT_ADMIN_ROLE": ["0x2E75287C542B9b111906D961d58f2617059dDe3c"]
+    },
+    "FlameBornHealthIDNFT": {
+      "MINTER_ROLE": ["0xE9Fcf860635E7B7C0a372e9aC790391168B56327"],
+      "DEFAULT_ADMIN_ROLE": ["0x2E75287C542B9b111906D961d58f2617059dDe3c"]
+    }
+  }
+}

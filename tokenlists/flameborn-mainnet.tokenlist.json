@@ -1,0 +1,11 @@
+{
+  "name": "FlameBorn (Celo Mainnet)",
+  "logoURI": "https://example.com/flameborn-logo.png",
+  "keywords": ["flameborn", "health", "impact"],
+  "timestamp": "2025-10-11T03:00:00+03:00",
+  "version": { "major": 0, "minor": 1, "patch": 0 },
+  "tags": {
+    "impact": { "name": "Impact", "description": "Proof-of-Impact token" }
+  },
+  "tokens": []
+}

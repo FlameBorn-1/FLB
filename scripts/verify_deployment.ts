@@ -1,24 +1,23 @@
 import { ethers } from "hardhat";
 
+const TOKEN_ADDRESS = "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1";
+const contractAddress = TOKEN_ADDRESS;
+
 async function main() {
-  // Use the deployed proxy address
-  const contractAddress = "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a";
-  
-  console.log("🔍 Verifying FlameBornToken deployment...");
-  console.log("📍 Contract Address:", contractAddress);
+  console.log("🔍 Verifying FlameBornToken deployment.");
+  console.log("📍 Contract Address:", TOKEN_ADDRESS);
 
   try {
-    // Get the contract instance
     const FlameBornToken = await ethers.getContractFactory("FlameBornToken");
-    const FlameBornToken = FlameBornToken.attach(contractAddress) as any;
+    const tokenContract = FlameBornToken.attach(contractAddress) as any;
 
     // Verify basic contract info
     console.log("\n✅ Contract Information:");
-    const name = await FlameBornToken.name();
-    const symbol = await FlameBornToken.symbol();
-    const decimals = await FlameBornToken.decimals();
-    const totalSupply = await FlameBornToken.totalSupply();
-    const owner = await FlameBornToken.owner();
+    const name = await tokenContract.name();
+    const symbol = await tokenContract.symbol();
+    const decimals = await tokenContract.decimals();
+    const totalSupply = await tokenContract.totalSupply();
+    const owner = await tokenContract.owner();
 
     console.log("- Name:", name);
     console.log("- Symbol:", symbol);
@@ -27,24 +26,24 @@ async function main() {
     console.log("- Owner:", owner);
 
     // Check owner balance
-    const ownerBalance = await FlameBornToken.balanceOf(owner);
+    const ownerBalance = await tokenContract.balanceOf(owner);
     console.log("- Owner Balance:", ethers.formatEther(ownerBalance), "FLB");
 
     // Check if contract is paused
-    const isPaused = await FlameBornToken.paused();
+    const isPaused = await tokenContract.paused();
     console.log("- Is Paused:", isPaused);
 
     // Test basic functionality (read-only)
     console.log("\n🧪 Testing Contract Functions:");
-    
+
     // Test allowance (should be 0 for random addresses)
     const [signer] = await ethers.getSigners();
-    const allowance = await FlameBornToken.allowance(owner, signer.address);
+    const allowance = await tokenContract.allowance(owner, signer.address);
     console.log("- Allowance (owner -> signer):", ethers.formatEther(allowance), "FLB");
 
     // Check if we can get domain separator (EIP-712)
     try {
-      const domainSeparator = await FlameBornToken.DOMAIN_SEPARATOR();
+      const domainSeparator = await tokenContract.DOMAIN_SEPARATOR();
       console.log("- Domain Separator:", domainSeparator);
     } catch (error) {
       console.log("- Domain Separator: Not available");

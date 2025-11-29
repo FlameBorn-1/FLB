@@ -1,5 +1,9 @@
 {
-  "name": "hardhat-project",
+  "name": "flameborn-token",
+  "version": "1.0.0",
+  "description": "FlameBorn token ecosystem deployment and governance tooling.",
+  "private": true,
+  "type": "commonjs",
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
     "@nomicfoundation/hardhat-ethers": "^3.1.0",
@@ -14,7 +18,8 @@
     "@types/node": "^24.1.0",
     "hardhat": "^2.26.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "slither-analyzer": "^0.10.3"
   },
   "dependencies": {
     "@celo/contractkit": "^10.0.0",
@@ -24,15 +29,33 @@
     "dotenv": "^17.2.1",
     "solc": "^0.8.30"
   },
-  "version": "1.0.0",
-  "description": "This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "deploy:engine": "ts-node scripts/deploy_engine_celo.ts"
+    "build": "tsc --noEmit",
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deploy-sepolia.ts --network celoSepolia",
+    "verify:sepolia": "hardhat verify --network celoSepolia",
+    "read:supply": "hardhat run scripts/read/read_total_supply.ts --network alfajores",
+    "gov:grant-minter": "hardhat run scripts/governance/grant_minter.ts --network alfajores",
+    "gov:propose-mint": "hardhat run scripts/governance/propose_mint.ts --network alfajores",
+    "gov:queue": "hardhat run scripts/governance/queue_and_execute.ts --queue --network alfajores",
+    "gov:execute": "hardhat run scripts/governance/queue_and_execute.ts --execute --network alfajores",
+    "gov:revoke-minter": "hardhat run scripts/governance/revoke_minter.ts --network alfajores",
+    "token:mint-once": "hardhat run scripts/token/mint_once.ts --network alfajores",
+    "verify:flb": "hardhat run scripts/verify/verify_flb.ts --network alfajores",
+    "verify:all": "hardhat run scripts/verify/verify_all.ts --network alfajores",
+    "tokenlist:gen": "ts-node scripts/tokenlist/generate.ts",
+    "airdrop:verify": "node -r dotenv/config scripts/verify_recipients.js",
+    "airdrop:transfer": "node -r dotenv/config scripts/airdrop_transfer_all.js",
+    "airdrop:mint:engine": "node -r dotenv/config scripts/mint_token_to_engine.js",
+    "airdrop:mint:all": "node -r dotenv/config scripts/mint_to_all.js",
+    "read:balance": "node -r dotenv/config scripts/read_balance.js",
+    "read:balance:hardhat": "hardhat run scripts/read/read_balance.ts --network alfajores",
+    "nonce:info": "node -r dotenv/config scripts/nonce_info.js",
+    "tx:cancel": "node -r dotenv/config scripts/cancel_pending.js"
   },
   "repository": {
     "type": "git",
@@ -40,8 +63,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FlameBorn-1/FLB/issues"
   },

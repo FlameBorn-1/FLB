@@ -1,0 +1,25 @@
+name: Release (Tag)
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Verify Contracts
+        run: npm run verify:all
+      - name: Provenance Snapshot
+        run: node scripts/provenance/snapshot.js
+      - name: Upload provenance artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: provenance
+          path: docs/provenance/

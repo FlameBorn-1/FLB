@@ -1,0 +1,29 @@
+{
+  "network": "celoSepolia",
+  "lastUpdated": "2025-11-28T21:21:41.588Z",
+  "deployer": "0x2E75287C542B9b111906D961d58f2617059dDe3c",
+  "contracts": {
+    "FlameBornToken": {
+      "address": "0xb48Cc842C41d694260726FacACad556ef3483fEC",
+      "deploymentTx": "0x5bdfa2fb16d68cf61bc212a294c6e64067dd5556a34131e92784cd7ebac17596",
+      "deployedAt": "2025-11-28T21:20:50.786Z",
+      "implementationAddress": "0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60"
+    },
+    "FlameBornHealthIDNFT": {
+      "address": "0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6",
+      "deploymentTx": "0x5c950e1c5266a324916949a6641f20fcc706455a7036146043e91b218c30f314",
+      "deployedAt": "2025-11-28T21:20:58.773Z"
+    },
+    "FlameBornEngine": {
+      "address": "0xE9Fcf860635E7B7C0a372e9aC790391168B56327",
+      "deploymentTx": "0xf61679602f93a097772f62ba51344c57938bb3e1f1cf8a48b223586220c12594",
+      "deployedAt": "2025-11-28T21:21:17.962Z",
+      "implementationAddress": "0xb8f4795f1aE3d8f51859d9b1E13d07399db2A5C8"
+    },
+    "GrantManager": {
+      "address": "0x8A976c9424e1482F6Ac51C6c5f0162357C6519c2",
+      "deploymentTx": "0x7cddd6502e40deb6f064b476079b79fd9b3d66096717e0e5bcede0f6e09ef2c1",
+      "deployedAt": "2025-11-28T21:21:41.588Z"
+    }
+  }
+}

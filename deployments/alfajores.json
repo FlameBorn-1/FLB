@@ -1,0 +1,20 @@
+{
+  "network": "alfajores",
+  "chainId": 44787,
+  "lastUpdated": "2025-10-11T06:30:00Z",
+  "FlameBornToken": {
+    "proxy": "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1",
+    "implementation": "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1",
+    "version": "1.0.0"
+  },
+  "FlameBornEngine": {
+    "proxy": "0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4",
+    "implementation": "0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4",
+    "address": "0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4",
+    "version": "1.0.0"
+  },
+  "FlameBornHealthIDNFT": {
+    "address": "0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8",
+    "version": "1.0.0"
+  }
+}

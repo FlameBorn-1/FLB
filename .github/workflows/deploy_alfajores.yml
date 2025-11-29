@@ -1,0 +1,42 @@
+name: Deploy Alfajores
+
+on:
+  workflow_dispatch:
+    inputs:
+      admin:
+        description: "Admin address for role handoff"
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: alfajores
+    env:
+      CELO_DEPLOYER_PK: ${{ secrets.DEPLOYER_PRIVKEY }}
+      CELOSCAN_API_KEY: ${{ secrets.CELOSCAN_API_KEY }}
+      MULTISIG: ${{ github.event.inputs.admin }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Compile
+        run: npx hardhat compile
+      - name: Deploy token proxy
+        run: npx hardhat run scripts/deploy/001_deploy_token.ts --network alfajores
+      - name: Deploy engine proxy
+        run: npx hardhat run scripts/deploy/002_deploy_engine.ts --network alfajores
+      - name: Wire roles
+        run: npx hardhat run scripts/deploy/003_wire_roles.ts --network alfajores
+        env:
+          MULTISIG: ${{ github.event.inputs.admin }}
+      - name: Verify contracts
+        run: npm run verify:all
+      - name: Generate tokenlist
+        run: npm run tokenlist:gen
+      - name: Upload tokenlist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flameborn-tokenlist-alfajores
+          path: tokenlists/flameborn.tokenlist.json

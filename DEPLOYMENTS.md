@@ -1,154 +1,38 @@
-# Kairo Covenant AI System - Deployment History
+# FlameBorn Contract Deployments
 
-This file tracks all deployments of the Kairo Covenant AI System contracts across different networks.
+For detailed runbooks see `docs/DEPLOYMENTS.md`. This summary tracks active networks and the canonical addresses committed in `deployments/*.json`.
 
-## ✅ Active Deployments
+## Celo Sepolia Testnet (Active)
 
-### HealthIDNFT v1.0 - Celo Alfajores Testnet
+- **Chain ID:** `11142220`
+- **RPC:** `https://celo-sepolia.blockscout.com/api/eth-rpc`
+- **Explorer:** `https://celo-sepolia.blockscout.com`
 
-**Deployment Date**: July 28, 2025
-**Status**: ✅ Active & Verified
-**Network**: Celo Alfajores Testnet (Chain ID: 44787)
+| Contract | Address |
+| --- | --- |
+| FLB Token (proxy) | `0xb48Cc842C41d694260726FacACad556ef3483fEC` |
+| FLB Token (implementation) | `0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60` |
+| FlameBorn HealthID NFT | `0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6` |
+| FlameBorn Engine (proxy) | `0xE9Fcf860635E7B7C0a372e9aC790391168B56327` |
+| FlameBorn Engine (implementation) | `0xb8f4795f1aE3d8f51859d9b1E13d07399db2A5C8` |
+| Grant Manager | `0x8A976c9424e1482F6Ac51C6c5f0162357C6519c2` |
+| cUSD (stablecoin) | `0x4822e58de6f5e485eF90df51C41CE01721331dC0` |
 
-#### Contract Addresses
+**Verification:** Implementations and proxies verified on Blockscout.
 
-- **🏷️ Contract Address**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
-- **👤 Admin**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
+**Roles:**
 
-#### Token Details
+- Token `MINTER_ROLE` → `0xE9Fcf860635E7B7C0a372e9aC790391168B56327`
+- Token & NFT `DEFAULT_ADMIN_ROLE` → `0x2E75287C542B9b111906D961d58f2617059dDe3c`
 
-- **Name**: HealthIDNFT
-- **Symbol**: HID
-- **Type**: Soulbound ERC721 (Non-transferable)
+## Historical Networks
 
-#### Features
+- **Alfajores (44787):** Legacy deployment kept for reference in `deployments/alfajores.json`.
+- **Celo Mainnet (42220):** _Not deployed yet_. This document will be updated post-mainnet launch.
 
-- ✅ ERC721 Standard Compliance
-- ✅ Soulbound (Non-transferable)
-- ✅ Role-Based Access Control (`MINTER_ROLE`, `MULTISIG_ROLE`)
-- ✅ `ERC721URIStorage` for metadata
+**Canonical sources:**
 
----
+- Sepolia → `deployments/celoSepolia.json`
+- Alfajores → `deployments/alfajores.json`
 
-## ✅ Active Deployments
-
-### FlameBornToken v1.0 - Celo Alfajores Testnet
-
-**Deployment Date**: July 28, 2025  
-**Status**: ✅ Active & Verified  
-**Network**: Celo Alfajores Testnet (Chain ID: 44787)
-
-#### Contract Addresses
-
-- **🏷️ Proxy Address**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
-- **🧠 Implementation**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
-- **👤 Owner**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
-
-#### Token Details
-
-- **Name**: FlameBornToken
-- **Symbol**: FLB
-- **Decimals**: 18
-- **Initial Supply**: 1,000,000 FLB
-- **Total Supply**: 1,000,000 FLB (all minted to owner)
-
-#### Features
-
-- ✅ ERC20 Standard Compliance
-- ✅ Upgradeable (UUPS Pattern)
-- ✅ Burnable Tokens
-- ✅ Pausable Transfers
-- ✅ EIP-2612 Permit Support
-- ✅ Owner Access Control
-
-#### Verification Status
-
-- **Contract Verified**: ✅ Yes
-- **Source Code**: Available on Celoscan
-- **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
-
-#### Deployment Configuration
-
-- **Compiler Version**: Solidity 0.8.24
-- **Optimization**: Enabled (200 runs)
-- **Gas Used**: ~2.5 CELO
-- **Deployment Script**: `scripts/deploy_flameborn_celo.ts`
-
-#### OpenZeppelin Upgrades
-
-- **Network File**: `.openzeppelin/celo-alfajores.json`
-- **Proxy Type**: UUPS (Universal Upgradeable Proxy Standard)
-- **Admin**: Contract owner (via UUPS pattern)
-
----
-
-## 📋 Deployment Commands
-
-### Deploy FlameBornToken
-
-```bash
-npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
-```
-
-### Verify Deployment
-
-```bash
-npx hardhat run scripts/verify_deployment.ts --network alfajores
-```
-
-### Verify on Explorer
-
-```bash
-npx hardhat verify --network alfajores <IMPLEMENTATION_ADDRESS>
-```
-
----
-
-## 🗂️ Network Configuration
-
-### Celo Alfajores Testnet
-
-- **RPC URL**: <https://alfajores-forno.celo-testnet.org>
-- **Chain ID**: 44787
-- **Explorer**: <https://alfajores.celoscan.io>
-- **Faucet**: <https://faucet.celo.org/alfajores>
-- **Gas Token**: CELO
-
----
-
-## 🔄 Upgrade History
-
-### v1.0 (Current)
-
-- **Date**: January 28, 2025
-- **Changes**: Initial deployment
-- **Implementation**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
-- **Features**: Full ERC20 with burn, pause, permit, and upgrade capabilities
-
----
-
-## 🚨 Deprecated/Old Deployments
-
-*No deprecated deployments yet.*
-
----
-
-## 📝 Notes
-
-- All deployments use OpenZeppelin's battle-tested upgradeable contracts
-- The proxy pattern allows for future upgrades while maintaining the same address
-- Only the contract owner can perform administrative functions (pause, mint, upgrade)
-- The contract follows the UUPS upgrade pattern for gas efficiency
-
----
-
-## 🔐 Security Considerations
-
-- **Private Keys**: Never commit private keys to version control
-- **Environment Variables**: Use `.env` file for sensitive configuration
-- **Access Control**: Only authorized addresses can perform admin functions
-- **Upgrades**: Upgrades require owner authorization and should be thoroughly tested
-
----
-
-*Last Updated: July 28, 2025*
+**Last Updated:** 2025-11-29

@@ -1,0 +1,269 @@
+# FlameBorn - Deployments (Sepolia, Alfajores & Mainnet)
+
+**Policy:** Zero initial supply. FLB only mints on verified action via Engine/Guardian.
+
+## Networks
+
+- **Celo Sepolia (L2 / 11142220) — Active**
+  - FlameBornToken (proxy): `0xb48Cc842C41d694260726FacACad556ef3483fEC`
+  - FlameBornToken (implementation): `0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60`
+  - FlameBornEngine (proxy): `0xE9Fcf860635E7B7C0a372e9aC790391168B56327`
+  - FlameBornEngine (implementation): `0xb8f4795f1aE3d8f51859d9b1E13d07399db2A5C8`
+  - FlameBornHealthIDNFT: `0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6`
+  - GrantManager: `0x8A976c9424e1482F6Ac51C6c5f0162357C6519c2`
+  - cUSD (Sepolia): `0x4822e58de6f5e485eF90df51C41CE01721331dC0`
+  - RPC: `https://celo-sepolia.blockscout.com/api/eth-rpc`
+  - Explorer: `https://celo-sepolia.blockscout.com`
+  - Verification: Implementations and proxies verified on Blockscout.
+
+- **Alfajores (Celo Testnet / 44787)**
+  - FlameBornToken: `0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1`
+  - FlameBornEngine: `0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4`
+  - FlameBornHealthIDNFT: `0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8`
+  - Verification: Published on Celoscan / Blockscout (constructor and initializer args documented below)
+  - Outstanding supply: `0` (burned in tx `0x6bef0ce88e04c8d85bf370e293aba35642c3e9746b5c67d3e370fdf589fef207` on 2025-10-11)
+
+- **Celo Mainnet (42220)**
+  - _Not deployed yet (intentionally)._ All references remain placeholders until mainnet go-live.
+
+## FlameBorn Airdrop — First 200 Believers
+
+- **Network:** Celo Alfajores Testnet
+- **Token:** FLB (`FlameBornToken.sol`)
+- **Contract:** `0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1`
+- **Snapshot Date:** 2025-10-12
+
+| # | Wallet Address | X Handle | Amount |
+|---|----------------|-----------|--------|
+| 1 | 0xE4D122c5ABd646fFD04284980262446aDE6e65aC | @i_akanimo | 1 FLB |
+| 2 | 0x50e3970Bb307424F959135761A6fA2fb5AcFbBfA | @lvmbunG | 1 FLB |
+| 3 | 0x630fcd8f9208672a62658517931d51242f6a0a39 | @Maverick8899667 | 1 FLB |
+| 4 | 0xa1529b1f06b4c2ddd374bade8880c3a90bebbe43 | @basracrypto1 | 1 FLB |
+| 5 | 0x3c9280303D4a0c2201F41990eBbBD8776188093C | @cryptoxid_ | 1 FLB |
+| 6 | 0xaDc5c7266BDA3fE01E87Eb90aaCa178334A6d485 | @Kuroeinn | 1 FLB |
+| 7 | 0x2b394A878cbA7626adfe69Ccc5fd52Cebb31FB16 | @baratek1dua | 1 FLB |
+| 8 | 0x44ad993916a44b1ed69a0c7958608818fcc7a867 | @BozetNuklir | 1 FLB |
+| 9 | 0x58fbb4335f5ecf096d35c9eb67b3ef621da95998 | @SyahrulxPro1 | 1 FLB |
+| 10 | 0xcf855e99379ffc42066a32ee81c3c108370c7a90 | @dwiwastanto37 | 1 FLB |
+| 11 | 0x4a92eD569d0A91055A9f71f3936C24221106b629 | @NafisAbid707 | 1 FLB |
+| 12 | 0x822Ab139c0F18e5b82ABe01D9E6d374bD4372c6B | @zxpioner2 | 1 FLB |
+| 13 | 0xf038d7d9dc36131a334407ebc3e6a6e4f5b59287 | @0xMarcosx | 1 FLB |
+| 14 | 0x25e570818DFdCAbCA35EfC7Fb0e7405AcE0eBb37 | @RfRosun46727 | 1 FLB |
+| 15 | 0xCa3a9F8676dD8Ab3154c70B45592d7071Dfa1A38 | @SagorKhan650250 | 1 FLB |
+| 16 | 0xea3189948b49fbb6d374bed4e93640a8faaf4d38 | @Blanks__blanks | 1 FLB |
+| 17 | 0x25316948645f78f4ec9aeb57780db8e9b8f12f7f | @tuyulkun | 1 FLB |
+| 18 | 0x4D016168d41cc441F6183d3bBFbcB9E1835925c7 | @fauziah2210 | 1 FLB |
+| 19 | 0x76B6Ec6966ddB602934F6cd4a5392613e0bB198d | @Ihwan299 | 1 FLB |
+| 20 | 0x4ac2184b523527032654d064539755918efe027a | @Keyxdrop | 1 FLB |
+| 21 | 0x75E7c85305c270a011096B27Dbf9E4b431144B4b | @reslfem | 1 FLB |
+| 22 | 0xcEE1f8b115F2559b4228918cdB7f89135702495A | @oraflayyy29 | 1 FLB |
+| 23 | 0x7f2607a58ad1124024622d75b85324afb3a29e87 | @raefdhl | 1 FLB |
+| 24 | 0xEF2C9870C3e8105a6417926ED3F8a669Fa418127 | @muhamad_gusman | 1 FLB |
+| 25 | 0xD8D2012E98f99a7EcAF8EA65C89a1bDce724616A | @akunnkoee | 1 FLB |
+| 26 | 0x0000Bc65dFe4597520734e05F21F3533e7b8061a | @GenZ_Aug | 1 FLB |
+| 27 | 0x193410B5c56D852A89b34D103E29E693cEF52cC6 | @RezaAlfariansy1 | 1 FLB |
+| 28 | 0x61C849503a25bE471060597118Df19863005254F | @martinnrj1120 | 1 FLB |
+| 29 | 0xE800f6D37D3e6fF1f6b0248F05908666021EB7C4 | @Refannnnnnx | 1 FLB |
+| 30 | 0xA24D5DA26b126355e9b4f6Bd67373715f6eaB286 | @Ratul3198 | 1 FLB |
+| 31 | 0xcc55238cf36d80ba5601bd948ff72cfef87d69a2 | @Harlanfdlh27 | 1 FLB |
+| 32 | 0x39c67fc700589ecac93e4512c753e773c4d3deda | @Zhimm99 | 1 FLB |
+| 33 | 0xA07F3C8b7E04Ae72a9dE31c2D8e79af3c38F6e5C | @Ellayyy114 | 1 FLB |
+| 34 | 0xA7E19A9930C0a2a09b88C1BD61Ae00947A07bf16 | @bekksu112001 | 1 FLB |
+| 35 | 0xbd1b1561963b376591b8598f6d01f57fde3b0630 | @FAmientt55727 | 1 FLB |
+| 36 | 0xBf2Cd77ab16b59e7EfC5229EBCd04DfD1e3982D6 | @aghsunn | 1 FLB |
+| 37 | 0xC5A82006c7AcfA653D28Db06F2Fefb1eEF6dA2d4 | @AprianaAlvin | 1 FLB |
+| 38 | 0x0d6f73F210cf7968d1214f75eA4C2297eD40DF5e | @kekeyk849 | 1 FLB |
+| 39 | 0xb5d6f70c57ccd4904abcc4e3265c73b561f414d8 | @0xRaulll | 1 FLB |
+| 40 | 0xD151864d4ccE1D02E9FFc21a880D5D199Da3A46a | @ilmanafia9888 | 1 FLB |
+| 41 | 0xc21d1d87ff05de1a625bc927ce0f9330c95225cf | @Gunzvzz | 1 FLB |
+| 42 | 0x54c28c8ca21f1d5e0bfae098fcaed23dbcc30bcb | @Isra1256060 | 1 FLB |
+| 43 | 0xA3172a1ff52524803A2232BB9AB4d68F180EBbC6 | @landojasa | 1 FLB |
+| 44 | 0xae068561d8485cffEb0ADABf315966993Bb35c06 | @Rajukhan8585 | 1 FLB |
+| 45 | 0x0BF169FC98f52A93839cadcE31342Da8B0933a44 | @wsri89800 | 1 FLB |
+| 46 | 0x805144d98c32FE2eabd4635fe0761733eff98540 | @adehuli13 | 1 FLB |
+| 47 | 0x4107916c9aAA279343722CD7F09f28C1042032dB | @cherikasha | 1 FLB |
+| 48 | 0x6585F4e3B9a0C3A81bCb5C57e1643f2d964E8E9 |  | 1 FLB |
+| 49 | 0x6585F4e3B9a0C3A81bCb5C57e1643f2d964E8E9a | @Go8Live | 1 FLB |
+| 50 | 0x1Ed65b1f264De6AA8e02d1716c6AbF59cE5B6bd5 | @46Ndost | 1 FLB |
+| 51 | 0x85c95b7fcf2897C93e78699A128629ab49dC6f8F | @latifsae12 | 1 FLB |
+| 52 | 0x0509876EaAaCEB6FdB530835638eE321143AF0cA | @ADoraemonz88598 | 1 FLB |
+| 53 | 0x9997155cD831E1DC59dE083DEFcEb40b3c75Ab79 | @Aditya_9977 | 1 FLB |
+| 54 | 0xdcc9d4dd619099cecae280cbd1d8fd1886b71df6 | @acengtg | 1 FLB |
+| 55 | 0xB9245E6e15961fB5651064b8dD6C54C6b1b8BeB5 | @Farhan280501 | 1 FLB |
+| 56 | 0xf9450615b4aeD29060d5125A5b3dd198Ce1b6CC8 | @koweasu05 | 1 FLB |
+| 57 | 0x24dB206248Bf84EC36a6481A160AAA4EfF125098 | @rachelah2210 | 1 FLB |
+| 58 | 0x72ddf2907ceBc957E78714886Ee894b9870D5E82 | @Balok1445 | 1 FLB |
+| 59 | 0x5d12A1A83cDB24f7491B02B553829fB8BdAAB0F4 | @iasep_7 | 1 FLB |
+| 60 | 0xd3d00c4DBC0c20D06D6d7E5659Bf69A5F9424893 | @Tratata173142 | 1 FLB |
+| 61 | 0xa46802D36140Cb38afBC9a1b2778139c20b60777 | @ChepNchep97 | 1 FLB |
+| 62 | 0x026C8666F10850664D9D8B969854D598926c6518 | @Jamil5550 | 1 FLB |
+| 63 | 0xf6c9E7a68243d0ce20cD033C6b4280A56C26091a | @Chivintz | 1 FLB |
+| 64 | 0xa7bF0Fdbc7A5165955eA37E890486F543e745bC4 | @jekia577976 | 1 FLB |
+| 65 | 0xD979a19Ed94E19356FE922D9b4Ff8bE0085F1AbD | @_M4TF01 | 1 FLB |
+| 66 | 0xb30B139B0D2885Cb7181bb5A0aC689Ea91cF1a06 | @2004Anggi28234 | 1 FLB |
+| 67 | 0x0cf3d2752488f6cbc71993b81829688f14de25d5 | @Vsjswiwi2222 | 1 FLB |
+| 68 | 0xF2b7d36a3bf2E4a3a2C8944014F0aB3Eb209A321 | @luiz8790 | 1 FLB |
+| 69 | 0x59D2bFbe59324b17F39569Ca8eb5C9CA15437777 | @abahairdrop1 | 1 FLB |
+| 70 | 0xb991E749bE91097Ea74E8929894ad17CF9998B8E | @siam71p | 1 FLB |
+| 71 | 0x5f62e180a305F26E18941f42619C086c30C97515 | @BTCHEK_NEW_ERA | 1 FLB |
+| 72 | 0x2157217376BB544A016D9c412e22A22eB238dDFf | @3Zainudin64134 | 1 FLB |
+| 73 | 0xb0d17af4ce02c3761826f5e85626c5724d567e61 | @Yovamao | 1 FLB |
+| 74 | 0x658C98796EEBDa3453fBdE74Fa19701464299ADC | @Tesyu97 | 1 FLB |
+| 75 | 0x915D5B9BfE21524a6b9f2b4A9D0252a1909E239f | @airdrop_garap | 1 FLB |
+| 76 | 0x2ad8ae769d4b40a93118d6ea0b23545fc90c8ef2 | @Tobbiramaaa03 | 1 FLB |
+| 77 | 0xf3FE9EE5776D5f64F7C944574A4f08e522cc6c9F | @JamessSunibowo | 1 FLB |
+| 78 | 0x4F3Ed0e6634dB22a2069155C7ad0E627fccda498 | @ErwinSa66158466 | 1 FLB |
+| 79 | 0x334731aAAcC736F29D3FA4A07116bA55149E1c2b | @tonowaw44 | 1 FLB |
+| 80 | 0xaf0ecbb82514173a498ea729701c072312af0138 | @irfanglacier4 | 1 FLB |
+| 81 | 0xAE6370d91F14088bB50E607e45A665317f0eD0C2 | @lumuto_ | 1 FLB |
+| 82 | 0x56acc323f52e8f3654e8fdba1d3482293e12588a | @amwl121 | 1 FLB |
+| 83 | 0x431c17f4ecdb5f09903960003368f4e38131392d | @okxjp1 | 1 FLB |
+| 84 | 0x9b0d8240d6c37b860926eca94df3d67ed6e3bcf5 | @somnqu11 | 1 FLB |
+| 85 | 0x2896f023bdc7b6c73cd979b8bb4a4d6f39f6d19a | @Esjshaff441 | 1 FLB |
+| 86 | 0xc8c0ad72d937b73199b91408768d05207b58062d | @Rainbowflame4 | 1 FLB |
+| 87 | 0x7d6c108192763e5422d91bd93f331e56e153cce0 | @Martinezz221 | 1 FLB |
+| 88 | 0xe7f81e6F8ed9fa6876D14A3fF50d323EA0656505 | @DayKill31704649 | 1 FLB |
+| 89 | 0x28a8a4d59FA60f6a353934790202D86dc1Dbf404 | @0xcybeer | 1 FLB |
+| 90 | 0x5A91E7d5621c4C952dbd08614D1e5c5300179daD | @bacanz_11 | 1 FLB |
+| 91 | 0x6aBB37BdeD408357F043a753664d30BD6A214f92 | @Plee843 | 1 FLB |
+| 92 | 0x8964d91ece454e595abf9aa2e6837ee68bf18737 | @piwhade | 1 FLB |
+| 93 | 0xc340df7f1cc7bd037f907b972991cfd09e4af74b | @MbhBok1R | 1 FLB |
+| 94 | 0xc927a17479ea365ee9a4e3e6d059c68ea3408162 | @nacthd_art | 1 FLB |
+| 95 | 0xCCf06f78689Aa4dade89E7FD3f8B5aA5CaA3033d | @LHurung61500 | 1 FLB |
+| 96 | 0x43E6546Ade557B7ed100671A4D24720Cb4d210fC | @aulia_carlla | 1 FLB |
+| 97 | 0xfe998e9dcbc97b7c25c0c67d3825c729e45bebaf | @FestMulung18779 | 1 FLB |
+| 98 | 0xbd7f5d8050af3dff554cfdd59444c17cec385ebd | @ko3cay82 | 1 FLB |
+| 99 | 0xbfeca3dc37c9fab96e06424c2e7bb545455853e1 | @Soneo_123 | 1 FLB |
+| 100 | 0x8c3b2c814d0e023a9419ac8ee837ea08ee612a2b | @dika_rahmd | 1 FLB |
+| 101 | 0xd43ee164b5858bea53efb9b705d93e591502481e | @IsmadiniahOtong | 1 FLB |
+| 102 | 0x111ae37b00f13558aa47f90b604b48bd6c2cd5a0 | @muh_syahrulR | 1 FLB |
+| 103 | 0x16e41635777cf7b0ae7d40dd8ce8163bb85a0db1 | @alexandrit377 | 1 FLB |
+| 104 | 0x39fac5684eabaa53675fbfd51a553c29661fb715 | @MamontoNiha | 1 FLB |
+| 105 | 0x645d72F9D890013BCD354330dfbcACe1640E5Aa9 | @yangantenf45 | 1 FLB |
+| 106 | 0xd81bd55bd9a7dd86d0a01a2778eb28db658983fb | @StoriaAr97867 | 1 FLB |
+| 107 | 0xc1d2c0f62966cd5fa2dc3592721074294319f46d | @BOYSWIIL169190 | 1 FLB |
+| 108 | 0x46cabd01e2302641fdbfc3c36f36aceb43d042b8 | @BeavisEvan | 1 FLB |
+| 109 | 0xff7c25b463d6657ba625d11886fd0d5272071a8b | @KotakSandi46895 | 1 FLB |
+| 110 | 0xA120988D67B95b41532c98a917a10Ddf08280B9B | @Rindarosen | 1 FLB |
+| 111 | 0x76c756867e69695b500e63622bfea0933acdd7a2 | @Marwan110801 | 1 FLB |
+| 112 | 0x4c2f5c733f02B0De0723Fb82100380955195D548 | @Peeyut4 | 1 FLB |
+| 113 | 0x6Cd18691aE0e16fCf9dC118285C03316026C4A34 | @Cyberttxt | 1 FLB |
+| 114 | 0x3698fe89b5CdC90d19A8eD3fdF8801b78790c06E | @Muhamma80689383 | 1 FLB |
+| 115 | 0xD7d3a35Af5F304a7e33256ADF620Cf3ed3C179F9 | @ipankVengeanc | 1 FLB |
+| 116 | 0xe966aA42765c1493AffEA0aB89C2df97ADc051da | @wdrwomen3 | 1 FLB |
+| 117 | 0x178e7DcBEC6E4B1d16E9903d76B352378F3bdB75 | @atengAt07137699 | 1 FLB |
+| 118 | 0xC6fb5Ece4FCD198588307969A3dAE682adb39100 | @Beacukai85 | 1 FLB |
+| 119 | 0xdfab49cd2b2211e08be5e3a0cd120017d0c6d403 | @legamh37911631 | 1 FLB |
+| 120 | 0x452479ece679001823e54e9d4cead316de654ec8 | @thelmillionaire | 1 FLB |
+| 121 | 0xcFc283E45ed794e423b6489D45330754a592bCc3 | @MdAbubokka56789 | 1 FLB |
+| 122 | 0x45F22024702C014f253D36BCC600C6e1b9255F99 | @sinaga_gun61870 | 1 FLB |
+| 123 | 0x71adf0c75241b5cb5ea6ad2cae263e15d9ca6133 | @Kucingtaww0233 | 1 FLB |
+| 124 | 0x1d200d5174ba8c8277e9fecbea5707d6f388ba8f | @riuyzzz | 1 FLB |
+| 125 | 0x1af8030e04c7c8cfee80b20640152156ef071927 | @dicky1733152 | 1 FLB |
+| 126 | 0xEA680758f30AA06a780492676A2a2fff6bF3Ec65 | @AkunAdsens90645 | 1 FLB |
+| 127 | 0x5C341310851eF75d74Db2E0A0159Ce2008Aa1494 | @Tasaa_ginting | 1 FLB |
+| 128 | 0x06619389e461EE40265A462056D4782d6593b845 | @isal999x | 1 FLB |
+| 129 | 0xB403290B22CC5341cc2Ac063ba2c58A7dF3c20E0 | @Andrian_JKT | 1 FLB |
+| 130 | 0xaa17A656B38aefEBd1Fb899CEd72fd91CF75D66e | @H_Haa17jan | 1 FLB |
+| 131 | 0x4E1D166829076934Fb0CcB2aC2ba5b88aa92D1e0 | @PrayogaAdi55547 | 1 FLB |
+| 132 | 0x83bf4ed92d67383883ddb808c1a8432df1cc1156 | @yannnskya85316 | 1 FLB |
+| 133 | 0x4f88c23bc2ebb5bc68d76cd160380c47555f067c | @adjackkk | 1 FLB |
+| 134 | 0x6581e6500a391136CAEcaa5fF5e10e1Dac8529BA | @akbarafifx | 1 FLB |
+| 135 | 0x452479ece679001823e54e9d4cead316de654ec8 | @thelmillionaire | 1 FLB |
+| 136 | 0x7880E3047FA6fe10828f98d14cC00925EC10be2F | @0x_dexe | 1 FLB |
+| 137 | 0xf7b77816d667acd0f2321e7e0401c64d09bba667 | @Betot_1234 | 1 FLB |
+| 138 | 0x1A74e1129693cBFe14A58b89Fc07ED9639a2A881 | @FarmFiGuru1 | 1 FLB |
+| 139 | 0x26270b07533e6b7F006c3044879Ed5e83db5DBbA | @Rogerro47 | 1 FLB |
+| 140 | 0xd8BCCF6786043024E4D4a8B441B901e7cB35299B | @hels5i | 1 FLB |
+| 141 | 0xfdf6e069d9c0fe45a8e7a3f3432f260f0ad7f5ba | @alicetankk | 1 FLB |
+| 142 | 0x27f35427ddb03dd9e840f803bb2263368a765068 | @Zylvns | 1 FLB |
+| 143 | 0x351B0B72Bc514ffED4F331F292cF8AFFC8f77110 | @eimakoto0 | 1 FLB |
+| 144 | 0x8f56fb45845Ade55A8b26922c75247855F17EaC4 | @bebencakeppp | 1 FLB |
+| 145 | 0xA63C4f86E70cEA5433C405bF47FDE743586Ecb22 | @rongsoxan | 1 FLB |
+| 146 | 0x388bAC2E8cf7fE8BD3a1B0b69B75bD7b3544eE3d | @Mozi290 | 1 FLB |
+| 147 | 0x3D8B9BcDEF45E23f5198133C12952B9D5c8533B2 | @rayred212 | 1 FLB |
+| 148 | 0xfce38a8949b92cb34443c33bd425d20373d2f1de | @axismenn | 1 FLB |
+| 149 | 0xeEeE90f2Ce8294ACf6acdCe21Cf3B9A6559AEe8c | @DAlamsyah430 | 1 FLB |
+| 150 | 0xD72dbF19AB405aFb15f0dE01E7548a2f17F1f91d | @holahasibuan7 | 1 FLB |
+| 151 | 0x3e9ad289ff03419575f4400b9d80120c9e7da43a | @kipowhere | 1 FLB |
+| 152 | 0x467282983d4ab9dd04919f931f07affa7cc57a77 | @Maxwell662149 | 1 FLB |
+| 153 | 0x06577D699B4f0532C9766Bf8E1E10aC536F142D7 | @airdroperbenz | 1 FLB |
+| 154 | 0xDb9506c895F06291DcF0d09F27901027FCD50b4d | @Abdullha647 | 1 FLB |
+| 155 | 0xe7632d42b6e3a2eedccd7f42db377a1750138e72 | @azrrr28 | 1 FLB |
+| 156 | 0x63a04dc8639af0236415e52da77cce06800c355c | @RifqiMu90806331 | 1 FLB |
+| 157 | 0xa1DC337DB426aB177ef73Cc19a9aCA2eDd0AA6a9 | @Manggin_rmdn | 1 FLB |
+| 158 | 0xB9421EcD5b1e251C69fB0DD9108594D77e529ab8 | @0xClooooo | 1 FLB |
+| 159 | 0x47600D210bdD145ba762e117E66c92066BFE5a03 | @yogigtg21 | 1 FLB |
+| 160 | 0x1F0721B2F56492F4D63fad489D22b9D74f4B88D3 | @rawbnc2 | 1 FLB |
+| 161 | 0x423bFe0aFd56f53fe1bb043aF478ecaAf3D13e6f | @powerrangercry | 1 FLB |
+| 162 | 0x7cbD65e7484566930aE11053bfAe7Ff09c0805A9 | @gariskerasxxx | 1 FLB |
+| 163 | 0xf3FE9EE5776D5f64F7C944574A4f08e522cc6c9F | @JamessSunibowo | 1 FLB |
+| 164 | 0x4F3Ed0e6634dB22a2069155C7ad0E627fccda498 | @ErwinSa66158466 | 1 FLB |
+| 165 | 0x334731aAAcC736F29D3FA4A07116bA55149E1c2b | @tonowaw44 | 1 FLB |
+| 166 | 0xaf0ecbb82514173a498ea729701c072312af0138 | @irfanglacier4 | 1 FLB |
+| 167 | 0xAE6370d91F14088bB50E607e45A665317f0eD0C2 | @lumuto_ | 1 FLB |
+| 168 | 0x56acc323f52e8f3654e8fdba1d3482293e12588a | @amwl121 | 1 FLB |
+| 169 | 0x431c17f4ecdb5f09903960003368f4e38131392d | @okxjp1 | 1 FLB |
+| 170 | 0x9b0d8240d6c37b860926eca94df3d67ed6e3bcf5 | @somnqu11 | 1 FLB |
+| 171 | 0x2896f023bdc7b6c73cd979b8bb4a4d6f39f6d19a | @Esjshaff441 | 1 FLB |
+| 172 | 0xc8c0ad72d937b73199b91408768d05207b58062d | @Rainbowflame4 | 1 FLB |
+| 173 | 0x7d6c108192763e5422d91bd93f331e56e153cce0 | @Martinezz221 | 1 FLB |
+| 174 | 0xe7f81e6F8ed9fa6876D14A3fF50d323EA0656505 | @DayKill31704649 | 1 FLB |
+| 175 | 0x28a8a4d59FA60f6a353934790202D86dc1Dbf404 | @0xcybeer | 1 FLB |
+| 176 | 0x5A91E7d5621c4C952dbd08614D1e5c5300179daD | @bacanz_11 | 1 FLB |
+| 177 | 0x6aBB37BdeD408357F043a753664d30BD6A214f92 | @Plee843 | 1 FLB |
+| 178 | 0x8964d91ece454e595abf9aa2e6837ee68bf18737 | @piwhade | 1 FLB |
+| 179 | 0xc340df7f1cc7bd037f907b972991cfd09e4af74b | @MbhBok1R | 1 FLB |
+| 180 | 0xc927a17479ea365ee9a4e3e6d059c68ea3408162 | @nacthd_art | 1 FLB |
+| 181 | 0xCCf06f78689Aa4dade89E7FD3f8B5aA5CaA3033d | @LHurung61500 | 1 FLB |
+| 182 | 0x43E6546Ade557B7ed100671A4D24720Cb4d210fC | @aulia_carlla | 1 FLB |
+| 183 | 0xfe998e9dcbc97b7c25c0c67d3825c729e45bebaf | @FestMulung18779 | 1 FLB |
+| 184 | 0xbd7f5d8050af3dff554cfdd59444c17cec385ebd | @ko3cay82 | 1 FLB |
+| 185 | 0xbfeca3dc37c9fab96e06424c2e7bb545455853e1 | @Soneo_123 | 1 FLB |
+| 186 | 0x8c3b2c814d0e023a9419ac8ee837ea08ee612a2b | @dika_rahmd | 1 FLB |
+| 187 | 0xd43ee164b5858bea53efb9b705d93e591502481e | @IsmadiniahOtong | 1 FLB |
+| 188 | 0x111ae37b00f13558aa47f90b604b48bd6c2cd5a0 | @muh_syahrulR | 1 FLB |
+| 189 | 0x16e41635777cf7b0ae7d40dd8ce8163bb85a0db1 | @alexandrit377 | 1 FLB |
+| 190 | 0x39fac5684eabaa53675fbfd51a553c29661fb715 | @MamontoNiha | 1 FLB |
+| 191 | 0x645d72F9D890013BCD354330dfbcACe1640E5Aa9 | @yangantenf45 | 1 FLB |
+| 192 | 0xd81bd55bd9a7dd86d0a01a2778eb28db658983fb | @StoriaAr97867 | 1 FLB |
+| 193 | 0xc1d2c0f62966cd5fa2dc3592721074294319f46d | @BOYSWIIL169190 | 1 FLB |
+| 194 | 0x46cabd01e2302641fdbfc3c36f36aceb43d042b8 | @BeavisEvan | 1 FLB |
+| 195 | 0xff7c25b463d6657ba625d11886fd0d5272071a8b | @KotakSandi46895 | 1 FLB |
+| 196 | 0xA120988D67B95b41532c98a917a10Ddf08280B9B | @Rindarosen | 1 FLB |
+| 197 | 0x76c756867e69695b500e63622bfea0933acdd7a2 | @Marwan110801 | 1 FLB |
+| 198 | 0x4c2f5c733f02B0De0723Fb82100380955195D548 | @Peeyut4 | 1 FLB |
+| 199 | 0x6Cd18691aE0e16fCf9dC118285C03316026C4A34 | @Cyberttxt | 1 FLB |
+| 200 | 0x3698fe89b5CdC90d19A8eD3fdF8801b78790c06E | @Muhamma80689383 | 1 FLB |
+
+## Constructor / Initializer Args
+
+- **FlameBornToken**: `(admin: address)` – grants `DEFAULT_ADMIN_ROLE` and `MINTER_ROLE`, no mint.
+- **FlameBornEngine**: `(admin: address, token: address, nFT: address, actorReward: uint256, donationRewardRate: uint256)` – Engine holds `MINTER_ROLE`.
+- **FlameBornHealthIDNFT**: `(admin: address)` – soulbound NFT with registrar roles.
+
+## Post-deploy Steps (Alfajores)
+
+1. Grant `MINTER_ROLE` to Engine:
+
+   ```bash
+   npm run gov:grant-minter -- FLB_ADDR=0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1 MINTER=0x82cA6C5FE9d7E834D908a2482aB76A51D64f5BB4
+   ```
+
+2. Smoke tests:
+
+   ```bash
+   npm run read:supply --
+   npm run read:balance -- ADDR=0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1 WHO=<your_eoa>
+   ```
+
+3. Verify:
+
+   ```bash
+   npm run verify:flb -- FLB_ADDR=0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1 FLB_ADMIN=<admin_address>
+   npm run verify:all
+   ```
+
+## Canonical Record
+
+The single source of truth is `deployments/alfajores.json`. All docs, tokenlists, and automation must reference it for addresses and metadata.

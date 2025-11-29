@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import HealthIDNFT_ABI from "../HealthIDNFT.json"; // Adjust path to your ABI with type assertion
+import FlameBornHealthIDNFT_ABI from "../contracts/FlameBornHealthIDNFT.json"; // Adjust path to your ABI with type assertion
 
-const contractInterface = new ethers.Interface(HealthIDNFT_ABI.abi);
+const contractInterface = new ethers.Interface(FlameBornHealthIDNFT_ABI.abi);
 
 const RoleManager = () => {
   const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
@@ -12,7 +12,7 @@ const RoleManager = () => {
   const [loading, setLoading] = useState(false);
 
   // Form State
-  const [contractAddress, setContractAddress] = useState("0x115aA20101bd0F95516Cc67ea104eD0B0c642919");
+  const [contractAddress, setContractAddress] = useState("0x1566c75a1Bad93a9fa5E2Da690395987E36e08e8");
   const [role, setRole] = useState("MINTER_ROLE");
   const [targetAccount, setTargetAccount] = useState("");
   const [recipient, setRecipient] = useState("");

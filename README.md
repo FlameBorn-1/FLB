@@ -2,83 +2,68 @@
 
 **FlameBornToken** is an upgradeable ERC20 token deployed on the Celo blockchain, empowering digital sovereignty and decentralized innovation.
 
----
+## 🌍 Live Deployments (Celo Sepolia)
 
-## 🌍 Live Deployments
+### 📋 Canonical Contract Addresses
 
-### ✅ FlameBornToken (ERC20)
+#### 🔥 FlameBornToken (FLB)
 
-* **Proxy Address**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
-* **Implementation Address**: `0x1C6924E0a6Ae373A9b52cbFF66075A72c1B97502`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
-* **Deployer**: `0x2E75287C542B9b111906D961d58f2617059dDe3c`
+- **Proxy Address**: `0xb48Cc842C41d694260726FacACad556ef3483fEC` ✅ **CANONICAL**
+- **Implementation Address**: `0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60` ✅ **CANONICAL**
+- **Explorer**: [View on Blockscout](https://celo-sepolia.blockscout.com/address/0xb48Cc842C41d694260726FacACad556ef3483fEC)
+- **Type**: Upgradeable ERC20 with Role-Based Access Control
 
-### 🏥 HealthIDNFT (Soulbound NFT)
+#### 🏥 FlameBornHealthIDNFT (FLB-HNFT)
 
-* **Contract Address**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
-* **Type**: Soulbound NFT with Role-Based Access Control
-* **Features**: Non-transferable, Auto-Increment Token IDs, Metadata URI, Minter/Admin roles
+- **Contract Address**: `0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6` ✅ **CANONICAL**
+- **Explorer**: [View on Blockscout](https://celo-sepolia.blockscout.com/address/0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6)
+- **Type**: Soulbound NFT with Role-Based Access Control
 
-### 🔥 FlameBornEngine
+#### ⚙️ FlameBornEngine (FLB-EN)
 
-* **Contract Address**: `0xfF4ea30aC26665B687e023375c6f8AD929cC8788`
-* **Implementation Address**: `0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D`
-* **Explorer**: [View on Celoscan](https://alfajores.celoscan.io/address/0xfF4ea30aC26665B687e023375c6f8AD929cC8788)
-* **Linked Contracts**:
-  * **FLB Token**: `0xd1b6883205eF7021723334D4ec0dc68D0D156b2a`
-  * **HealthIDNFT**: `0x115aA20101bd0F95516Cc67ea104eD0B0c642919`
-* **Features**:
-  * Role-driven interaction logic
-  * Reward distribution (FLB)
-  * Learn-to-Earn & Donation mechanics
-  * Modular controller engine
+- **Proxy Address**: `0xE9Fcf860635E7B7C0a372e9aC790391168B56327` ✅ **CANONICAL**
+- **Implementation Address**: `0xb8f4795f1aE3d8f51859d9b1E13d07399db2A5C8` ✅ **CANONICAL**
+- **Explorer**: [View on Blockscout](https://celo-sepolia.blockscout.com/address/0xE9Fcf860635E7B7C0a372e9aC790391168B56327)
+- **Type**: UUPS Upgradeable Learn-to-Earn Engine
 
 ---
 
-## Alfajores Testnet Deployment
+## ✅ Verification Status (Blockscout)
 
-**Contract Addresses**
+- 🟢 FLB Token (proxy + implementation) verified
+- 🟢 FlameBorn Engine (proxy + implementation) verified
+- 🟢 FlameBorn HealthID NFT verified
 
-* FlameBornEngine (Proxy): [0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6](https://alfajores.celoscan.io/address/0x7aD2EB9BcdAd361f51574B32a794c6fD7fE0e0a6)
-* Implementation: [0x632446C0C9FBa5bF97733042F2B6F1aB2009A817](https://alfajores.celoscan.io/address/0x632446C0C9FBa5bF97733042F2B6F1aB2009A817)
+🔗 [FLB Token](https://celo-sepolia.blockscout.com/address/0xb48Cc842C41d694260726FacACad556ef3483fEC?tab=code)
 
-**Deployment TX**
-[0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9](https://alfajores.celoscan.io/tx/0x70dadfa696bf8e2224a6c0f4ec1e3144af288bcf35716f87388d9b833569d6a9)
+🔗 [FlameBornHealthIDNFT](https://celo-sepolia.blockscout.com/address/0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6?tab=code)
 
----
-
-## ✅ Verification Status
-
-* FlameBornEngine implementation [verified on Celoscan](https://alfajores.celoscan.io/address/0x539962Fdb1AFcEb0BABc329591a49E6c56cC520D#code)
-* HealthIDNFT [verified on Celoscan](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919#code)
-* Proxy contract at 0xfF4ea30aC26665B687e023375c6f8AD929cC8788 is linked to the implementation
-
----
+🔗 [FlameBornEngine](https://celo-sepolia.blockscout.com/address/0xE9Fcf860635E7B7C0a372e9aC790391168B56327?tab=code)
 
 ## ✅ Test Coverage
+
 
 The FlameBornEngine has been thoroughly tested with 5 key test cases:
 
 1. **Actor Verification**
-   * Verifies actors and mints NFT + FLB rewards
-   * Validates role-based access control
+   - Verifies actors and mints NFT + FLB rewards
+   - Validates role-based access control
 
 2. **Donation Processing**
-   * Tests CELO donations and FLB rewards
-   * Verifies donor balances tracking
+   - Tests CELO donations and FLB rewards
+   - Verifies donor balances tracking
 
 3. **Quest Rewards**
-   * Validates FLB distribution for completed quests
-   * Tests reward tracking system
+   - Validates FLB distribution for completed quests
+   - Tests reward tracking system
 
 4. **Withdrawals**
-   * Verifies admin withdrawal functionality
-   * Ensures proper fund accounting
+   - Verifies admin withdrawal functionality
+   - Ensures proper fund accounting
 
 5. **Access Control**
-   * Validates role-based permissions
-   * Tests custom error messages for unauthorized access
+   - Validates role-based permissions
+   - Tests custom error messages for unauthorized access
 
 ## 🧪 Running Tests
 
@@ -98,22 +83,22 @@ npx hardhat test test/engine.test.ts --gas-report
 
 ## 🚀 Deployment & Verification
 
-### Deploy (Celo Alfajores)
+### Deploy (Celo Sepolia)
 
 ```sh
-npx hardhat run scripts/deploy_engine_celo.ts --network alfajores
+npx hardhat run scripts/deploy_engine_celo.ts --network celoSepolia
 ```
 
 ### Verify on Celoscan
 
 ```sh
-npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC8788
+npx hardhat verify --network celoSepolia 0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6
 ```
 
 ### Test Engine Functionality
 
-* Use the frontend or scripts to interact with the contract.
-* Ensure all functions (donation, rewards, actor verification, etc.) work as expected.
+- Use the frontend or scripts to interact with the contract.
+- Ensure all functions (donation, rewards, actor verification, etc.) work as expected.
 
 ---
 
@@ -124,9 +109,22 @@ npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC878
 | **Name**     | FlameBornToken                      |
 | **Symbol**   | FLB                                 |
 | **Decimals** | 18                                  |
-| **Supply**   | 1,000,000 FLB                       |
+| **Supply**   | Dynamic (mint-on-demand)            |
 | **Standard** | Upgradeable ERC20                   |
-| **Access**   | Ownable, Pausable, Burnable, Permit |
+| **Access**   | Ownable + MINTER_ROLE               |
+
+---
+
+## 🕊️ Covenantal Minting Principles
+
+- **Zero-by-default**
+  Every wallet begins at `0 FLB`. No pre-allocations or deployer hoards. Supply arises only when covenantal conditions are fulfilled.
+- **Engine-administered issuance**
+  Only designated covenantal contracts (e.g. `FlameBornEngine`) receive `MINTER_ROLE` so minting is tied to verifiable life-saving actions.
+- **Non-custodial ledger**
+  FLB always resides in participant wallets. The contracts orchestrate issuance and verification—never custody.
+- **Transparent governance**
+  Administrators can call `grantMinterRole()`/`revokeMinterRole()` on `FlameBornToken` to bless or remove covenantal issuers, keeping the mint set explicit.
 
 ---
 
@@ -134,23 +132,23 @@ npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC878
 
 ### 🔥 FlameBornToken (FLB)
 
-* ✅ ERC20-compliant & upgradeable
-* 🔄 Burnable & pausable
-* 🪪 EIP-2612 permit support
-* 🔐 OpenZeppelin audited contracts
+- ✅ ERC20-compliant & upgradeable
+- 🔄 Burnable & pausable
+- 🪪 EIP-2612 permit support
+- 🔐 OpenZeppelin audited contracts
 
-### 🏥 HealthIDNFT (HID)
+### 🏥 FlameBornHealthIDNFT (HID)
 
-* 🧾 Soulbound (non-transferable)
-* 🛡️ Role-based minting and access
-* 📜 IPFS/URI metadata support
+- 🧾 Soulbound (non-transferable)
+- 🛡️ Role-based minting and access
+- 📜 IPFS/URI metadata support
 
 ### ⚙️ FlameBornEngine
 
-* ⚡ Learn-to-Earn reward distribution
-* 🤝 Ties NFT and token logic together
-* 🎯 Modular controller pattern (admin-controlled)
-* 🧬 Donation-driven FLB mechanics
+- ⚡ Learn-to-Earn reward distribution
+- 🤝 Ties NFT and token logic together
+- 🎯 Modular controller pattern (admin-controlled)
+- 🧬 Donation-driven FLB mechanics
 
 ---
 
@@ -158,9 +156,9 @@ npx hardhat verify --network alfajores 0xfF4ea30aC26665B687e023375c6f8AD929cC878
 
 ### 🧰 Prerequisites
 
-* Node.js v16+
-* npm or yarn
-* Hardhat & Git
+- Node.js v16+
+- npm or yarn
+- Hardhat & Git
 
 ### 🔧 Setup
 
@@ -183,46 +181,59 @@ npx hardhat test
 
 ## 📋 Deployment Commands
 
+### 🚀 Orchestrated Deployment (Recommended)
+
+Deploy all contracts in the correct order with automatic dependency management:
+
 ```bash
-# Deploy Token
-npx hardhat run scripts/deploy_flameborn_celo.ts --network alfajores
+# Deploy all contracts (Token → NFT → Engine)
+npx hardhat run scripts/deploy_all.ts --network celoSepolia
+```
 
-# Deploy HealthIDNFT
-npx hardhat run scripts/deploy_healthidnft_celo.ts --network alfajores
+### 🛠️ Individual Deployments
 
-# Deploy FlameBornEngine
-npx hardhat run scripts/deploy_engine_celo.ts --network alfajores
+```bash
+# Deploy individual contracts
+npx hardhat run scripts/deploy_token.ts --network celoSepolia
+npx hardhat run scripts/deploy_healthidnft.ts --network celoSepolia
+npx hardhat run scripts/deploy_engine.ts --network celoSepolia
+```
+
+### 🔍 Verification & Testing
+
+```bash
+# Verify all contract source code on CeloScan
+npx hardhat run scripts/verify_all.ts --network celoSepolia
+
+# Run functional verification tests
+npx hardhat run scripts/verify_deployment.ts --network celoSepolia
+
+# Run full test suite
+npx hardhat test
 ```
 
 ---
 
-## 🛠️ Script Utilities
+## 🧬 Project Structure
 
-```bash
-# Verify a deployed contract
-npx hardhat verify --network alfajores <CONTRACT_ADDRESS>
 ```
-
----
-
-## 🧬 Contract Layout
-
-```bash
 FLB/
 ├── contracts/
-│   ├── FlameBornToken.sol
-│   ├── HealthIDNFT.sol
-│   ├── FlameBornEngine.sol
+│   ├── token/FlameBornToken.sol        # Upgradeable ERC20, zero initial supply
+│   ├── engine/FlameBornEngine.sol      # Learn-to-earn engine & governance hooks
+│   └── nft/FlameBornHealthIDNFT.sol    # Soulbound health identity NFT
 ├── scripts/
-│   ├── deploy_flameborn_celo.ts
-│   ├── deploy_healthidnft_celo.ts
-│   ├── deploy_engine_celo.ts
-│   └── verify_deployment.ts
-├── test/
-├── .env.example
-├── hardhat.config.ts
-└── DEPLOYMENT_GUIDE.md
-``` bash
+│   ├── deploy/                        # 001_deploy_token.ts, 002_deploy_engine.ts, 003_wire_roles.ts
+│   ├── governance/                    # propose_mint.ts, queue_and_execute.ts
+│   ├── read/                          # read_total_supply.ts, read_balance.ts
+│   └── verify/                        # verify_all.ts
+├── deployments/
+│   ├── celoSepolia.json                 # Canonical addresses (proxy, implementation)
+│   └── mainnet.json                   # Placeholder manifest
+├── test/                          # Comprehensive test suite
+├── PROVENANCE.md                  # 🔍 Contract provenance & verification
+└── docs/archive/LAUNCH_ANNOUNCEMENT.md         # 📢 Community launch materials
+```
 
 ---
 
@@ -230,43 +241,44 @@ FLB/
 
 ### Admin
 
-* `grantRole(bytes32, address)`
-* `setRewards(uint256)`
-* `pause()`, `unpause()`
+- `grantRole(bytes32, address)`
+- `setRewards(uint256)`
+- `pause()`, `unpause()`
 
 ### User
 
-* `donate()` → triggers reward
-* `mint()` → mint HealthID NFT (if authorized)
-* `claimReward()` → FLB token incentives
+- `donate()` → triggers reward
+- `mint()` → mint HealthID NFT (if authorized)
+- `claimReward()` → FLB token incentives
 
 ---
 
 ## 🌐 Network Config
 
-* **Testnet**: Celo Alfajores
-* **RPC**: `https://alfajores-forno.celo-testnet.org`
-* **Chain ID**: `44787`
-* **Faucet**: [https://faucet.celo.org/alfajores](https://faucet.celo.org/alfajores)
-* **Explorer**: [https://alfajores.celoscan.io](https://alfajores.celoscan.io)
+- **Testnet**: Celo Sepolia
+- **RPC**: `https://celo-sepolia.blockscout.com/api/eth-rpc`
+- **Chain ID**: `11142220`
+- **Faucet**: [https://faucet.celo.org/](https://faucet.celo.org/)
+- **Explorer**: [https://celo-sepolia.blockscout.com](https://celo-sepolia.blockscout.com)
 
 ---
 
 ## 🔐 Security Highlights
 
-* 🔐 UUPS upgradeable pattern
-* 🛡️ OpenZeppelin access roles
-* 🔍 Verified deployments on Celoscan
-* 🧪 Fully tested contracts (see `/test`)
+- 🔐 UUPS upgradeable pattern
+- 🛡️ OpenZeppelin access roles
+- 🔍 Verified deployments on Celoscan
+- 🧪 Fully tested contracts (see `/test`)
 
 ---
 
 ## 📚 Resources
 
-* 📘 [Deployment Guide](./DEPLOYMENT_GUIDE.md)
-* 🔧 [Celo Docs](https://docs.celo.org/)
-* 🔐 [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts)
-* ⚙️ [Hardhat Docs](https://hardhat.org)
+- 📘 [Deployment Guide](./DEPLOYMENT_GUIDE.md)
+- 🔧 [Celo Docs](https://docs.celo.org/)
+- 🔐 [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts)
+- 🌐 [Celo Sepolia self-hosted RPC](docs/CELO_SEPOLIA_NODE.md)
+- ⚙️ [Hardhat Docs](https://hardhat.org)
 
 ---
 
@@ -291,12 +303,33 @@ See [LICENSE](LICENSE) for details.
 
 ## 🔗 Links
 
-* 💾 [GitHub Repo](https://github.com/FlameBorn-1/FLB)
-* 🔥 [FLB Token](https://alfajores.celoscan.io/address/0xd1b6883205eF7021723334D4ec0dc68D0D156b2a)
-* 🩺 [HealthIDNFT](https://alfajores.celoscan.io/address/0x115aA20101bd0F95516Cc67ea104eD0B0c642919)
-* 🧠 [Celo](https://celo.org/)
-* 🧱 [OpenZeppelin](https://openzeppelin.com/)
+- 💾 [GitHub Repo](https://github.com/FlameBorn-1/FLB)
+- 🔥 [FLB Token](https://celo-sepolia.blockscout.com/address/0xb48Cc842C41d694260726FacACad556ef3483fEC?tab=index#code)
+- **FlameBornEngine (Proxy & Impl)**: `0xE9Fcf860635E7B7C0a372e9aC790391168B56327`
+- **FlameBornHealthIDNFT**: `0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6`
+- 🔥 [FlameBornEngine](https://celo-sepolia.blockscout.com/address/0xE9Fcf860635E7B7C0a372e9aC790391168B56327?tab=contract)
+- 🧠 [Celo](https://celo.org/)
+- 🧱 [OpenZeppelin](https://openzeppelin.com/)
 
 ---
+{{ ... }}
 
-*"When the LION learns to CODE, the HUNTER's story ends."* 🦁
+- **Deployment rite**
+
+  1. **Compile** — `npx hardhat compile`
+  2. **Deploy** — `npx hardhat run scripts/deploy_all.ts --network celoSepolia`
+  3. **Grant minter** — In Hardhat console, call `grantMinterRole("0xE9Fcf860635E7B7C0a372e9aC790391168B56327")` on the new token proxy.
+  4. **Verify** — `npx hardhat verify --network celoSepolia <implementationAddress>`
+  5. **Initial Supply**: 0 FLB. All minting requires governance-approved `MINTER_ROLE`.
+  6. **Total Supply**: Determined by executed governance mints.
+  7. **Optional lockdown** — call `revokeMinterRole(<owner address>)` if you want the engine as the sole issuer.
+
+- **Operational checklist**
+
+  - **Test mint flow** — trigger a small engine-driven mint, confirm balances and `totalSupply()` update correctly.
+  - **Documentation** — tick off the deployment checklist, then add the “Supply Locked” line to your Genesis announcement draft.
+
+### Completion
+
+Covenantal minting flow is implemented and documented; repository ready for the Genesis 200 deployment sequence.
+

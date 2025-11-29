@@ -1,0 +1,21 @@
+{
+  "name": "FlameBorn (Alfajores)",
+  "logoURI": "https://example.com/flameborn-logo.png",
+  "keywords": ["flameborn", "health", "impact"],
+  "timestamp": "2025-10-11T03:00:00+03:00",
+  "version": { "major": 1, "minor": 0, "patch": 0 },
+  "tags": {
+    "impact": { "name": "Impact", "description": "Proof-of-Impact token" }
+  },
+  "tokens": [
+    {
+      "chainId": 44787,
+      "address": "0x2806D0C068E0Bdd553Fd9d533C40cAFA6657b5f1",
+      "name": "FlameBorn",
+      "symbol": "FLB",
+      "decimals": 18,
+      "logoURI": "https://example.com/flb.png",
+      "tags": ["impact"]
+    }
+  ]
+}
