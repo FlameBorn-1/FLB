@@ -1766,8 +1766,8 @@
       ]
     },
     "C:\\Users\\idona\\OneDrive - World Health Organization\\Documents\\Dev\\FLB\\contracts\\FlameBornToken.sol": {
-      "lastModificationDate": 1769734626645,
-      "contentHash": "e36c51d428bc8d08137cc73838bbc905",
+      "lastModificationDate": 1769815237428,
+      "contentHash": "565dcb2982de65c17360f2d7723b9a21",
       "sourceName": "contracts/FlameBornToken.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -1798,13 +1798,14 @@
         "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20PausableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20PermitUpgradeable.sol"
       ],
       "versionPragmas": [
-        "^0.8.24"
+        "^0.8.28"
       ],
       "artifacts": [
         "FlameBornToken"

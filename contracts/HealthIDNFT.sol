@@ -52,7 +52,42 @@ contract HealthIDNFT is ERC721URIStorage, AccessControl {
     }
 
     /**
-     * @dev Override _update to enforce soulbound property
+     * @dev Canonical soulbound enforcement - block ALL transfer mechanisms
+     */
+    
+    /// @dev Block standard transfers
+    function transferFrom(address, address, uint256) public pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /// @dev Block safe transfers
+    function safeTransferFrom(address, address, uint256) public pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /// @dev Block safe transfers with data
+    function safeTransferFrom(address, address, uint256, bytes memory) public pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /// @dev Block approvals
+    function approve(address, uint256) public pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /// @dev Block approval for all
+    function setApprovalForAll(address, bool) public pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /// @dev Block burning
+    function _burn(uint256) internal pure override {
+        revert SoulboundTransferNotAllowed();
+    }
+
+    /**
+     * @dev Override _update to enforce soulbound property at the base level
+     * @notice This is a fallback - explicit overrides above are the primary enforcement
      */
     function _update(
         address to,
@@ -61,8 +96,8 @@ contract HealthIDNFT is ERC721URIStorage, AccessControl {
     ) internal override returns (address) {
         address from = _ownerOf(tokenId);
 
-        // Allow minting (from == address(0)) but block all transfers
-        if (from != address(0) && to != address(0)) {
+        // Allow minting (from == address(0)) only
+        if (from != address(0)) {
             revert SoulboundTransferNotAllowed();
         }
 

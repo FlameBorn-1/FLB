@@ -52,8 +52,8 @@ contract FlameBornToken is
         
         // Grant admin role to initial owner for governance and role management
         _grantRole(DEFAULT_ADMIN_ROLE, initialOwner);
-        // Ensure governance can delegate minting without pre-minting supply
-        _grantRole(MINTER_ROLE, initialOwner);
+        // Owner does NOT get MINTER_ROLE - minting is strictly role-based
+        // MINTER_ROLE must be explicitly granted to authorized contracts (e.g., Engine)
     }
 
     function pause() public onlyOwner {
