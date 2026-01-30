@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.28;
 
 // Core upgradeable contracts
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -7,6 +7,7 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
 // Access control
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 
 // ERC20 core and extensions
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
@@ -20,17 +21,14 @@ contract FlameBornToken is
     ERC20BurnableUpgradeable,
     ERC20PausableUpgradeable,
     OwnableUpgradeable,
+    AccessControlUpgradeable,
     ERC20PermitUpgradeable,
     UUPSUpgradeable
 {
     /**
-     * @custom:oz-upgrades-unsafe-allow constructor
-     * @custom:dev-run-script scripts/deploy_with_ethers.ts
-     * @custom:dev-doc https://docs.openzeppelin.com/contracts/4.x/erc20
-     * @dev Token decimals and initial supply constants
+     * @dev MINTER_ROLE allows covenantal contracts to mint new tokens
      */
-    uint8 private constant _DECIMALS = 18;
-    uint256 private constant _INITIAL_SUPPLY = 1000000 * (10 ** _DECIMALS);
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
     /**
      * @custom:oz-upgrades-unsafe-allow constructor
@@ -40,19 +38,22 @@ contract FlameBornToken is
     }
 
     /**
-     * @dev Initializes the contract with initial owner and mints initial supply
-     * @param initialOwner The address that will own the contract and receive initial supply
+     * @dev Initializes the contract with covenantal admin privileges and zero initial supply
+     * @param initialOwner The address that will own the contract for governance and role management
      */
     function initialize(address initialOwner) initializer public {
         __ERC20_init("FlameBornToken", "FLB");
         __ERC20Burnable_init();
         __ERC20Pausable_init();
         __Ownable_init(initialOwner);
+        __AccessControl_init();
         __ERC20Permit_init("FlameBornToken");
         __UUPSUpgradeable_init();
         
-        // Mint initial supply to the initial owner
-        _mint(initialOwner, _INITIAL_SUPPLY);
+        // Grant admin role to initial owner for governance and role management
+        _grantRole(DEFAULT_ADMIN_ROLE, initialOwner);
+        // Ensure governance can delegate minting without pre-minting supply
+        _grantRole(MINTER_ROLE, initialOwner);
     }
 
     function pause() public onlyOwner {
@@ -63,8 +64,17 @@ contract FlameBornToken is
         _unpause();
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
+        require(hasRole(MINTER_ROLE, msg.sender), "Caller is not authorized to mint");
         _mint(to, amount);
+    }
+
+    function grantMinterRole(address account) external onlyOwner {
+        _grantRole(MINTER_ROLE, account);
+    }
+
+    function revokeMinterRole(address account) external onlyOwner {
+        _revokeRole(MINTER_ROLE, account);
     }
 
     function _authorizeUpgrade(address newImplementation)
@@ -80,5 +90,14 @@ contract FlameBornToken is
         override(ERC20Upgradeable, ERC20PausableUpgradeable)
     {
         super._update(from, to, value);
+    }
+    
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(AccessControlUpgradeable)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
     }
 }

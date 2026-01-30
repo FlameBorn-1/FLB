@@ -8,7 +8,14 @@ import { Signer } from "ethers";
 // --- Configuration ---
 // Best practice: Move this to separate JSON files per network (e.g., deployments/alfajores.config.json)
 const config = {
-  // Celo Alfajores Testnet
+  // Celo Sepolia Testnet (Current - Chain ID: 11142220)
+  sepolia: {
+    flbTokenAddress: "0x93F4c3B97aa4706e0a84f7667eB7f356F138dC60",
+    healthIdNftAddress: "0x22Ad3B84f8B465aF478157752751ae6DcaA7eea6",
+    actorReward: ethers.parseUnits("100", 18), // 100 FLB
+    donationRewardRate: 100n, // 100 FLB per base unit of native currency
+  },
+  // Celo Alfajores Testnet (DEPRECATED - Sunset Sept 30, 2025)
   alfajores: {
     flbTokenAddress: "0xd1b6883205eF7021723334D4ec0dc68D0D156b2a",
     healthIdNftAddress: "0x115aA20101bd0F95516Cc67ea104eD0B0c642919",
@@ -35,14 +42,14 @@ function saveDeploymentInfo(network: string, deploymentInfo: object): void {
   if (!fs.existsSync(deploymentsDir)) {
     fs.mkdirSync(deploymentsDir, { recursive: true });
   }
-  
+
   const filename = join(deploymentsDir, `${network}.json`);
   const existingData = fs.existsSync(filename)
     ? JSON.parse(fs.readFileSync(filename, 'utf-8'))
     : {};
 
   const updatedData = { ...existingData, ...deploymentInfo };
-  
+
   fs.writeFileSync(filename, JSON.stringify(updatedData, null, 2));
   console.log(`✅ Deployment info saved to ${filename}`);
 }
@@ -72,24 +79,24 @@ async function verifyContract(address: string): Promise<void> {
 }
 
 async function checkPrerequisites(deployer: Signer) {
-    console.log("Deploying with account:", await deployer.getAddress());
-    const balance = await ethers.provider.getBalance(deployer);
-    console.log("Account balance:", ethers.formatEther(balance), "CELO");
+  console.log("Deploying with account:", await deployer.getAddress());
+  const balance = await ethers.provider.getBalance(deployer);
+  console.log("Account balance:", ethers.formatEther(balance), "CELO");
 
-    if (balance === 0n) {
-        throw new Error("❌ Deployer account has no CELO. Please fund your account.");
-    }
+  if (balance === 0n) {
+    throw new Error("❌ Deployer account has no CELO. Please fund your account.");
+  }
 }
 
 async function main() {
   console.log("🚀 Starting FlameBornEngine deployment script");
-  
+
   const [deployer] = await ethers.getSigners();
   const network = await ethers.provider.getNetwork();
   const networkName = network.name === 'unknown' || network.name === 'homestead' ? 'localhost' : network.name;
 
   console.log(`🔥 Deploying FlameBornEngine to ${networkName} (Chain ID: ${network.chainId})...`);
-  
+
   await checkPrerequisites(deployer);
 
   const networkConfig = (config as any)[networkName];
@@ -98,7 +105,7 @@ async function main() {
   }
 
   const FlameBornEngine = await ethers.getContractFactory("FlameBornEngine");
-  
+
   const args = [
     await deployer.getAddress(), // admin
     networkConfig.flbTokenAddress,
@@ -113,21 +120,21 @@ async function main() {
   console.log(`- HealthIDNFT Address: ${args[2]}`);
   console.log(`- Actor Reward: ${ethers.formatEther(args[3])} FLB`);
   console.log(`- Donation Reward Rate: ${args[4].toString()} FLB per base unit`);
-  
+
   console.log("\n🚀 Deploying proxy...");
   const engine = await upgrades.deployProxy(FlameBornEngine, args, {
     initializer: "initialize",
     kind: "uups",
     timeout: 0, // No timeout for deployment
   });
-  
+
   await engine.waitForDeployment();
   const engineAddress = await engine.getAddress();
   console.log("✅ FlameBornEngine (Proxy) deployed to:", engineAddress);
-  
+
   const implementationAddress = await upgrades.erc1967.getImplementationAddress(engineAddress);
   console.log("🧠 Implementation address:", implementationAddress);
-  
+
   const deploymentInfo = {
     FlameBornEngine: {
       address: engineAddress,
@@ -142,11 +149,11 @@ async function main() {
 
   console.log("\n🌍 View on Celoscan:");
   console.log(`https://alfajores.celoscan.io/address/${engineAddress}`);
-  
+
   if (networkName !== 'localhost' && networkName !== 'hardhat') {
     await verifyContract(engineAddress);
   }
-  
+
   console.log("\n🎉 Deployment completed successfully!");
 }
 
