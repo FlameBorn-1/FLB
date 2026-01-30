@@ -14,7 +14,7 @@ interface IFlameBornToken is IERC20 {
 }
 
 interface IHealthIDNFT {
-    function mintCredential(address to, uint256 tokenId, string calldata uri) external;
+    function mintWithMetadata(address to, string memory metadataURI) external returns (uint256);
 }
 
 contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgradeable, ReentrancyGuardUpgradeable {
@@ -127,7 +127,7 @@ contract FlameBornEngine is Initializable, UUPSUpgradeable, AccessControlUpgrade
         });
 
         string memory uri = tokenURIForActor(name);
-        healthIDNFT.mintCredential(actorAddress, uint256(uint160(actorAddress)), uri);
+        healthIDNFT.mintWithMetadata(actorAddress, uri);
         token.mint(actorAddress, actorReward);
 
         emit ActorVerified(actorAddress, role, name);
