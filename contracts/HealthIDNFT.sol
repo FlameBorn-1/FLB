@@ -2,6 +2,7 @@
 pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
@@ -56,38 +57,33 @@ contract HealthIDNFT is ERC721URIStorage, AccessControl {
      */
     
     /// @dev Block standard transfers
-    function transferFrom(address, address, uint256) public pure override {
+    function transferFrom(address, address, uint256) public pure override(ERC721, IERC721) {
         revert SoulboundTransferNotAllowed();
     }
 
     /// @dev Block safe transfers
-    function safeTransferFrom(address, address, uint256) public pure override {
+    function safeTransferFrom(address, address, uint256) public pure override(ERC721, IERC721) {
         revert SoulboundTransferNotAllowed();
     }
 
     /// @dev Block safe transfers with data
-    function safeTransferFrom(address, address, uint256, bytes memory) public pure override {
+    function safeTransferFrom(address, address, uint256, bytes memory) public pure override(ERC721, IERC721) {
         revert SoulboundTransferNotAllowed();
     }
 
     /// @dev Block approvals
-    function approve(address, uint256) public pure override {
+    function approve(address, uint256) public pure override(ERC721, IERC721) {
         revert SoulboundTransferNotAllowed();
     }
 
     /// @dev Block approval for all
-    function setApprovalForAll(address, bool) public pure override {
-        revert SoulboundTransferNotAllowed();
-    }
-
-    /// @dev Block burning
-    function _burn(uint256) internal pure override {
+    function setApprovalForAll(address, bool) public pure override(ERC721, IERC721) {
         revert SoulboundTransferNotAllowed();
     }
 
     /**
-     * @dev Override _update to enforce soulbound property at the base level
-     * @notice This is a fallback - explicit overrides above are the primary enforcement
+     * @dev Override _update to enforce soulbound property
+     * @notice Blocks ALL transfers and burns - only minting allowed
      */
     function _update(
         address to,
@@ -97,6 +93,7 @@ contract HealthIDNFT is ERC721URIStorage, AccessControl {
         address from = _ownerOf(tokenId);
 
         // Allow minting (from == address(0)) only
+        // This blocks both transfers AND burns
         if (from != address(0)) {
             revert SoulboundTransferNotAllowed();
         }
