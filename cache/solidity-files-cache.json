@@ -1766,8 +1766,8 @@
       ]
     },
     "C:\\Users\\idona\\OneDrive - World Health Organization\\Documents\\Dev\\FLB\\contracts\\FlameBornToken.sol": {
-      "lastModificationDate": 1769815237428,
-      "contentHash": "565dcb2982de65c17360f2d7723b9a21",
+      "lastModificationDate": 1769817402123,
+      "contentHash": "5cef5f451f64571904990624b7239d10",
       "sourceName": "contracts/FlameBornToken.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -2054,8 +2054,8 @@
       ]
     },
     "C:\\Users\\idona\\OneDrive - World Health Organization\\Documents\\Dev\\FLB\\contracts\\HealthIDNFT.sol": {
-      "lastModificationDate": 1769734626635,
-      "contentHash": "eb65fd39c9580fa62d750fb5e5cd9c4b",
+      "lastModificationDate": 1769817812077,
+      "contentHash": "8172804358eb80bea841d9e4e43fd39e",
       "sourceName": "contracts/HealthIDNFT.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -2084,6 +2084,8 @@
       },
       "imports": [
         "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
         "@openzeppelin/contracts/access/AccessControl.sol"
       ],
       "versionPragmas": [
